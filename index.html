@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Andrew Ruiz - Portfolio</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
   <style>
     * {
       margin: 0;
@@ -11,8 +15,12 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Poppins', sans-serif;
       background: linear-gradient(to bottom right, #f0f4f8, #d9e2ec);
       color: #333;
       padding: 40px 20px;
@@ -20,15 +28,33 @@
       margin: auto;
     }
 
-    <nav>
-  <ul>
-    <li><a href="#about">About</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
+    nav {
+      background: white;
+      padding: 15px 0;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
 
-    
+    nav ul {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      list-style: none;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #3498db;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
     h1 {
       font-size: 2.5rem;
       color: #2c3e50;
@@ -63,6 +89,12 @@
       margin-bottom: 10px;
     }
 
+    .project img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
     .project a {
       color: #3498db;
       text-decoration: none;
@@ -78,6 +110,25 @@
       line-height: 1.6;
     }
 
+    footer {
+      margin-top: 50px;
+      text-align: center;
+      padding: 20px 0;
+      color: #999;
+    }
+
+    #loader {
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      z-index: 9999;
+    }
+
     @media (max-width: 600px) {
       h1 {
         font-size: 2rem;
@@ -86,33 +137,62 @@
       h2 {
         font-size: 1.5rem;
       }
+
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+      }
     }
   </style>
+
+  <script>
+    window.addEventListener("load", function () {
+      document.getElementById("loader").style.display = "none";
+    });
+  </script>
 </head>
 <body>
+  <div id="loader">Loading...</div>
+
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
   <h1>Andrew Ruiz</h1>
   <p class="subtitle">Software Engineer | Embedded Systems | Cybersecurity | iOS Developer</p>
 
-  <h2>About Me</h2>
+  <h2 id="about">About Me</h2>
   <p>I’m a Computer Engineering graduate with experience in secure embedded systems, encrypted communication protocols, and full-stack development. I enjoy solving complex problems and building real-time, high-impact tools for users and teams.</p>
 
-  <h2>Projects</h2>
+  <h2 id="projects">Projects</h2>
 
   <div class="project">
+    <img src="images/streaming-demo.png" alt="Encrypted Streaming Demo">
     <h3>Encrypted Video Streaming System</h3>
-    <p>Real-time AES-encrypted video stream from Raspberry Pi to Mac using Rust and OpenSSL. Features GUI control, performance metrics, and cross-platform decryption. <a href="https://github.com/aruiz190/secure-video-stream" target="_blank">View Code</a></p>
+    <p>Real-time AES-encrypted video stream from Raspberry Pi to Mac using Rust and OpenSSL. Features GUI control, performance metrics, and cross-platform decryption. 
+    <a href="https://github.com/aruiz190/secure-video-stream" target="_blank">View Code</a></p>
   </div>
 
   <div class="project">
+    <img src="images/bucketlist-demo.png" alt="Bucket List iOS App">
     <h3>Bucket List App (iOS)</h3>
-    <p>Collaborative bucket list app with Firebase integration, Google Sign-In, and photo uploads using SwiftUI. <a href="https://github.com/aruiz190/bucketlist-app" target="_blank">View Code</a></p>
+    <p>Collaborative bucket list app with Firebase integration, Google Sign-In, and photo uploads using SwiftUI. 
+    <a href="https://github.com/aruiz190/bucketlist-app" target="_blank">View Code</a></p>
   </div>
 
-  <h2>Contact</h2>
+  <h2 id="contact">Contact</h2>
   <div class="contact">
     <p>Email: andrew.ruiz215@gmail.com</p>
     <p>GitHub: <a href="https://github.com/aruiz190" target="_blank">github.com/aruiz190</a></p>
   </div>
+
+  <footer>
+    © 2025 Andrew Ruiz — All rights reserved
+  </footer>
 </body>
 </html>
 
