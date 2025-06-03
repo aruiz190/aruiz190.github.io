@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Andrew Ruiz - Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <meta name="description" content="Andrew Ruiz – Secure Embedded Systems, Full Stack Dev, iOS Engineer">
 
   <style>
     :root {
@@ -61,10 +63,13 @@
       text-decoration: none;
       color: var(--primary);
       font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 4px;
     }
 
-    nav a:hover {
-      text-decoration: underline;
+    nav a:hover, nav a.active {
+      background: var(--primary);
+      color: white;
     }
 
     #theme-toggle {
@@ -76,7 +81,7 @@
       padding: 8px 12px;
       cursor: pointer;
       border-radius: 5px;
-      font-weight: bold;
+      font-size: 1.2rem;
     }
 
     h1 {
@@ -88,7 +93,7 @@
     p.subtitle {
       font-size: 1.2rem;
       color: #777;
-      margin-bottom: 30px;
+      margin-bottom: 10px;
     }
 
     h2 {
@@ -113,8 +118,17 @@
     }
 
     .project.visible {
-      opacity: 1;
-      transform: translateY(0);
+      animation: fadeSlideUp 0.6s ease-out forwards;
+    }
+
+    .project:hover {
+      transform: scale(1.02);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .project img {
@@ -180,17 +194,34 @@
       background: #217dbb;
     }
 
+    #scroll-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
     @media (max-width: 600px) {
       h1 { font-size: 2rem; }
       h2 { font-size: 1.5rem; }
-      nav ul { flex-direction: column; gap: 10px; }
+      nav ul { flex-direction: column; gap: 20px; padding: 10px 0; }
       #theme-toggle { position: fixed; bottom: 20px; right: 20px; }
     }
   </style>
 
   <script>
     window.addEventListener("load", function () {
-      document.getElementById("loader").style.display = "none";
+      const loader = document.getElementById("loader");
+      loader.style.transition = "opacity 0.5s ease-out";
+      loader.style.opacity = 0;
+      setTimeout(() => loader.style.display = "none", 500);
+
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) entry.target.classList.add('visible');
@@ -201,13 +232,30 @@
 
     function toggleTheme() {
       document.body.classList.toggle('dark');
+      const toggle = document.getElementById("theme-toggle");
+      toggle.textContent = document.body.classList.contains('dark') ? "☀️" : "🌙";
     }
+
+    document.addEventListener("scroll", () => {
+      const sections = document.querySelectorAll("h2[id]");
+      let currentId = "";
+      sections.forEach((section) => {
+        const offset = section.offsetTop - 100;
+        if (window.scrollY >= offset) currentId = section.id;
+      });
+      document.querySelectorAll("nav a").forEach((a) => {
+        a.classList.remove("active");
+        if (a.getAttribute("href") === "#" + currentId) {
+          a.classList.add("active");
+        }
+      });
+    });
   </script>
 </head>
 <body>
   <div id="loader">Loading...</div>
 
-  <button id="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+  <button id="theme-toggle" onclick="toggleTheme()">🌙</button>
 
   <nav>
     <ul>
@@ -220,6 +268,7 @@
 
   <h1>Andrew Ruiz</h1>
   <p class="subtitle">Software Engineer | Embedded Systems | Cybersecurity | iOS Developer</p>
+  <p style="margin-bottom: 30px; color: var(--text); font-style: italic;">“Building secure, scalable systems—one line of code at a time.”</p>
 
   <h2 id="about">About Me</h2>
   <p>I’m a Computer Engineering graduate with experience in secure embedded systems, encrypted communication protocols, and full-stack development. I enjoy solving complex problems and building real-time, high-impact tools for users and teams.</p>
@@ -229,14 +278,14 @@
   <div class="project">
     <img src="images/streaming-demo.png" alt="Encrypted Multiplex Demo">
     <h3>Encrypted Multiplexed Video & Messaging System</h3>
-    <p>A secure, real-time communication system supporting video, audio, and text messaging over a TCP network. It uses AES encryption (CTR mode), a multiplexed client-server model, and multi-threaded C code to enable simultaneous encrypted media streaming. Built for Raspberry Pi and Mac with GUI controls, live performance monitoring, and secure file transfer.  
+    <p>A secure, real-time communication system supporting video, audio, and text messaging over a TCP network. It uses AES encryption (CTR mode), a multiplexed client-server model, and multi-threaded C code to enable simultaneous encrypted media streaming. Built for Raspberry Pi and Mac with GUI controls, live performance monitoring, and secure file transfer.
     <a href="https://github.com/aruiz190/encrypted-multiplex-system" target="_blank">View Code</a></p>
   </div>
 
   <div class="project">
     <img src="images/bucketlist-demo.png" alt="Bucket List iOS App">
     <h3>Bucket List App (iOS)</h3>
-    <p>Collaborative iOS app using SwiftUI and Firebase. Features include Google Sign-In, image uploads, user groups, and real-time syncing. Built for sharing experiences and managing goals with others.  
+    <p>Collaborative iOS app using SwiftUI and Firebase. Features include Google Sign-In, image uploads, user groups, and real-time syncing. Built for sharing experiences and managing goals with others.
     <a href="https://github.com/aruiz190/bucketlist-app" target="_blank">View Code</a></p>
   </div>
 
@@ -256,6 +305,8 @@
     </form>
     <p style="margin-top:15px;">Or email me directly: <a href="mailto:andrew.ruiz215@gmail.com">andrew.ruiz215@gmail.com</a></p>
   </div>
+
+  <button id="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">⬆️</button>
 
   <footer>
     © 2025 Andrew Ruiz — All rights reserved
