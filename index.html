@@ -32,6 +32,10 @@
       scroll-behavior: smooth;
     }
 
+    body, nav, .project, .resume-section, .contact, footer {
+      transition: background 0.5s ease, color 0.5s ease;
+    }
+
     body {
       font-family: 'Poppins', sans-serif;
       background: var(--bg);
@@ -39,7 +43,6 @@
       padding: 40px 20px;
       max-width: 900px;
       margin: auto;
-      transition: background 0.3s, color 0.3s;
     }
 
     nav {
@@ -82,6 +85,24 @@
       cursor: pointer;
       border-radius: 5px;
       font-size: 1.2rem;
+      transition: transform 0.4s ease;
+    }
+
+    #theme-toggle.rotated {
+      transform: rotate(360deg);
+    }
+
+    #theme-flash {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: var(--bg);
+      z-index: 9998;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.6s ease;
     }
 
     h1 {
@@ -94,62 +115,6 @@
       font-size: 1.2rem;
       color: #777;
       margin-bottom: 10px;
-    }
-
-    h2 {
-      margin-top: 40px;
-      font-size: 1.8rem;
-      color: var(--text);
-      border-bottom: 2px solid var(--primary);
-      padding-bottom: 5px;
-      margin-bottom: 20px;
-    }
-
-    .section {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.6s ease-out;
-    }
-
-    .section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .project {
-      background: var(--card-bg);
-      padding: 20px;
-      margin-bottom: 20px;
-      border-left: 5px solid var(--primary);
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      border-radius: 8px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .project:hover {
-      transform: scale(1.02);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    }
-
-    .project img {
-      width: 100%;
-      border-radius: 8px;
-      margin-bottom: 15px;
-    }
-
-    .project a {
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .project a:hover {
-      text-decoration: underline;
-    }
-
-    .contact, .resume-section {
-      margin-top: 30px;
-      line-height: 1.6;
     }
 
     footer {
@@ -180,80 +145,6 @@
       font-size: 1.5rem;
       z-index: 9999;
     }
-
-    form input, form textarea {
-      width: 100%;
-      margin-bottom: 10px;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-family: inherit;
-    }
-
-    form button {
-      background: var(--primary);
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    form button:hover {
-      background: #217dbb;
-    }
-
-    #scroll-top {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background: var(--primary);
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 5px;
-      cursor: pointer;
-      z-index: 1000;
-    }
-
-    #resume-modal {
-      display: none;
-      position: fixed;
-      top: 5%;
-      left: 5%;
-      width: 90%;
-      height: 90%;
-      background: white;
-      z-index: 2000;
-      box-shadow: 0 0 20px rgba(0,0,0,0.5);
-    }
-
-    #resume-modal iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-    #resume-modal button {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      font-size: 1.2rem;
-      border: none;
-      background: var(--primary);
-      color: white;
-      border-radius: 5px;
-      padding: 5px 10px;
-      cursor: pointer;
-    }
-
-    @media (max-width: 600px) {
-      h1 { font-size: 2rem; }
-      h2 { font-size: 1.5rem; }
-      nav ul { flex-direction: column; gap: 20px; padding: 10px 0; }
-      #theme-toggle { position: fixed; bottom: 20px; right: 20px; }
-    }
   </style>
 
   <script>
@@ -262,106 +153,40 @@
       loader.style.transition = "opacity 0.5s ease-out";
       loader.style.opacity = 0;
       setTimeout(() => loader.style.display = "none", 500);
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) entry.target.classList.add('visible');
-        });
-      }, { threshold: 0.1 });
-
-      document.querySelectorAll('.section').forEach(el => observer.observe(el));
     });
 
     function toggleTheme() {
-      document.body.classList.toggle('dark');
-      const toggle = document.getElementById("theme-toggle");
-      toggle.textContent = document.body.classList.contains('dark') ? "☀️" : "🌙";
-    }
+      const flash = document.getElementById("theme-flash");
+      const icon = document.getElementById("theme-toggle");
+      const sound = document.getElementById("toggle-sound");
 
-    document.addEventListener("scroll", () => {
-      const sections = document.querySelectorAll("h2[id]");
-      let currentId = "";
-      sections.forEach((section) => {
-        const offset = section.offsetTop - 100;
-        if (window.scrollY >= offset) currentId = section.id;
-      });
-      document.querySelectorAll("nav a").forEach((a) => {
-        a.classList.remove("active");
-        if (a.getAttribute("href") === "#" + currentId) {
-          a.classList.add("active");
-        }
-      });
-    });
+      sound.currentTime = 0;
+      sound.play();
 
-    function openResumeModal() {
-      document.getElementById("resume-modal").style.display = "block";
-    }
+      flash.style.opacity = 1;
+      icon.classList.add('rotated');
 
-    function closeResumeModal() {
-      document.getElementById("resume-modal").style.display = "none";
+      setTimeout(() => {
+        document.body.classList.toggle('dark');
+        icon.textContent = document.body.classList.contains('dark') ? "☀️" : "🌙";
+      }, 150);
+
+      setTimeout(() => {
+        flash.style.opacity = 0;
+        icon.classList.remove('rotated');
+      }, 600);
     }
   </script>
 </head>
 <body>
   <div id="loader">Loading...</div>
+  <div id="theme-flash"></div>
+  <audio id="toggle-sound" src="toggle-click.mp3" preload="auto"></audio>
 
   <button id="theme-toggle" onclick="toggleTheme()">🌙</button>
 
-  <nav>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#resume">Resume</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
   <h1>Andrew Ruiz</h1>
   <p class="subtitle">Software Engineer | Embedded Systems | Cybersecurity | iOS Developer</p>
-  <p style="margin-bottom: 30px; color: var(--text); font-style: italic;">“Building secure, scalable systems—one line of code at a time.”</p>
-
-  <h2 id="about" class="section">About Me</h2>
-  <p class="section">I’m a Computer Engineering graduate with experience in secure embedded systems, encrypted communication protocols, and full-stack development. I enjoy solving complex problems and building real-time, high-impact tools for users and teams.</p>
-
-  <h2 id="projects" class="section">Projects</h2>
-
-  <div class="project section">
-    <img src="images/streaming-demo.png" alt="Encrypted Multiplex Demo">
-    <h3>Encrypted Multiplexed Video & Messaging System</h3>
-    <p>A secure, real-time communication system supporting video, audio, and text messaging over a TCP network. It uses AES encryption (CTR mode), a multiplexed client-server model, and multi-threaded C code to enable simultaneous encrypted media streaming. Built for Raspberry Pi and Mac with GUI controls, live performance monitoring, and secure file transfer.
-    <a href="https://github.com/aruiz190/encrypted-multiplex-system" target="_blank">View Code</a></p>
-  </div>
-
-  <div class="project section">
-    <img src="images/bucketlist-demo.png" alt="Bucket List iOS App">
-    <h3>Bucket List App (iOS)</h3>
-    <p>Collaborative iOS app using SwiftUI and Firebase. Features include Google Sign-In, image uploads, user groups, and real-time syncing. Built for sharing experiences and managing goals with others.
-    <a href="https://github.com/aruiz190/bucketlist-app" target="_blank">View Code</a></p>
-  </div>
-
-  <h2 id="resume" class="section">Resume</h2>
-  <div class="resume-section section">
-    <p>You can <a href="#" onclick="openResumeModal()">📄 Preview Resume</a> or <a href="Andrew.Ruiz_Resume.pdf" target="_blank">Download (PDF)</a>.</p>
-  </div>
-
-  <div id="resume-modal">
-    <iframe src="Andrew.Ruiz_Resume.pdf"></iframe>
-    <button onclick="closeResumeModal()">Close</button>
-  </div>
-
-  <h2 id="contact" class="section">Contact</h2>
-  <div class="contact section">
-    <form action="https://formspree.io/f/meokqraz" method="POST">
-      <input type="text" name="name" placeholder="Your name" required>
-      <input type="email" name="email" placeholder="Your email" required>
-      <textarea name="message" placeholder="Your message..." rows="5" required></textarea>
-      <input type="hidden" name="_next" value="https://yourwebsite.com/#contact-thanks">
-      <button type="submit">Send Message</button>
-    </form>
-    <p style="margin-top:15px;">Or email me directly: <a href="mailto:andrew.ruiz215@gmail.com">andrew.ruiz215@gmail.com</a></p>
-  </div>
-
-  <button id="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">⬆️</button>
 
   <footer>
     © 2025 Andrew Ruiz — All rights reserved <br>
