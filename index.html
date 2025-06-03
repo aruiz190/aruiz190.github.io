@@ -105,6 +105,17 @@
       margin-bottom: 20px;
     }
 
+    .section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-out;
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     .project {
       background: var(--card-bg);
       padding: 20px;
@@ -112,23 +123,12 @@
       border-left: 5px solid var(--primary);
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       border-radius: 8px;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.6s ease-out;
-    }
-
-    .project.visible {
-      animation: fadeSlideUp 0.6s ease-out forwards;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .project:hover {
       transform: scale(1.02);
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    }
-
-    @keyframes fadeSlideUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
     }
 
     .project img {
@@ -157,6 +157,16 @@
       text-align: center;
       padding: 20px 0;
       color: #999;
+    }
+
+    footer a {
+      margin: 0 10px;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
     }
 
     #loader {
@@ -207,6 +217,37 @@
       z-index: 1000;
     }
 
+    #resume-modal {
+      display: none;
+      position: fixed;
+      top: 5%;
+      left: 5%;
+      width: 90%;
+      height: 90%;
+      background: white;
+      z-index: 2000;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+
+    #resume-modal iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    #resume-modal button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 1.2rem;
+      border: none;
+      background: var(--primary);
+      color: white;
+      border-radius: 5px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
     @media (max-width: 600px) {
       h1 { font-size: 2rem; }
       h2 { font-size: 1.5rem; }
@@ -227,7 +268,8 @@
           if (entry.isIntersecting) entry.target.classList.add('visible');
         });
       }, { threshold: 0.1 });
-      document.querySelectorAll('.project').forEach(el => observer.observe(el));
+
+      document.querySelectorAll('.section').forEach(el => observer.observe(el));
     });
 
     function toggleTheme() {
@@ -250,6 +292,14 @@
         }
       });
     });
+
+    function openResumeModal() {
+      document.getElementById("resume-modal").style.display = "block";
+    }
+
+    function closeResumeModal() {
+      document.getElementById("resume-modal").style.display = "none";
+    }
   </script>
 </head>
 <body>
@@ -270,49 +320,55 @@
   <p class="subtitle">Software Engineer | Embedded Systems | Cybersecurity | iOS Developer</p>
   <p style="margin-bottom: 30px; color: var(--text); font-style: italic;">“Building secure, scalable systems—one line of code at a time.”</p>
 
-  <h2 id="about">About Me</h2>
-  <p>I’m a Computer Engineering graduate with experience in secure embedded systems, encrypted communication protocols, and full-stack development. I enjoy solving complex problems and building real-time, high-impact tools for users and teams.</p>
+  <h2 id="about" class="section">About Me</h2>
+  <p class="section">I’m a Computer Engineering graduate with experience in secure embedded systems, encrypted communication protocols, and full-stack development. I enjoy solving complex problems and building real-time, high-impact tools for users and teams.</p>
 
-  <h2 id="projects">Projects</h2>
+  <h2 id="projects" class="section">Projects</h2>
 
-  <div class="project">
+  <div class="project section">
     <img src="images/streaming-demo.png" alt="Encrypted Multiplex Demo">
     <h3>Encrypted Multiplexed Video & Messaging System</h3>
     <p>A secure, real-time communication system supporting video, audio, and text messaging over a TCP network. It uses AES encryption (CTR mode), a multiplexed client-server model, and multi-threaded C code to enable simultaneous encrypted media streaming. Built for Raspberry Pi and Mac with GUI controls, live performance monitoring, and secure file transfer.
     <a href="https://github.com/aruiz190/encrypted-multiplex-system" target="_blank">View Code</a></p>
   </div>
 
-  <div class="project">
+  <div class="project section">
     <img src="images/bucketlist-demo.png" alt="Bucket List iOS App">
     <h3>Bucket List App (iOS)</h3>
     <p>Collaborative iOS app using SwiftUI and Firebase. Features include Google Sign-In, image uploads, user groups, and real-time syncing. Built for sharing experiences and managing goals with others.
     <a href="https://github.com/aruiz190/bucketlist-app" target="_blank">View Code</a></p>
   </div>
 
-  <h2 id="resume">Resume</h2>
-  <div class="resume-section">
-    <p>You can view or download my latest resume here:</p>
-    <a href="Andrew.Ruiz_Resume.pdf" target="_blank">📄 Download Resume (PDF)</a>
+  <h2 id="resume" class="section">Resume</h2>
+  <div class="resume-section section">
+    <p>You can <a href="#" onclick="openResumeModal()">📄 Preview Resume</a> or <a href="Andrew.Ruiz_Resume.pdf" target="_blank">Download (PDF)</a>.</p>
   </div>
 
-  <h2 id="contact">Contact</h2>
-<div class="contact">
-  <form action="https://formspree.io/f/meokqraz" method="POST">
-    <input type="text" name="name" placeholder="Your name" required>
-    <input type="email" name="email" placeholder="Your email" required>
-    <textarea name="message" placeholder="Your message..." rows="5" required></textarea>
-    <button type="submit">Send Message</button>
-    <input type="hidden" name="_next" value="https://yourwebsite.com/#contact-thanks">
-  </form>
-  <p style="margin-top:15px;">Or email me directly: <a href="mailto:andrew.ruiz215@gmail.com">andrew.ruiz215@gmail.com</a></p>
-</div>
+  <div id="resume-modal">
+    <iframe src="Andrew.Ruiz_Resume.pdf"></iframe>
+    <button onclick="closeResumeModal()">Close</button>
+  </div>
+
+  <h2 id="contact" class="section">Contact</h2>
+  <div class="contact section">
+    <form action="https://formspree.io/f/meokqraz" method="POST">
+      <input type="text" name="name" placeholder="Your name" required>
+      <input type="email" name="email" placeholder="Your email" required>
+      <textarea name="message" placeholder="Your message..." rows="5" required></textarea>
+      <input type="hidden" name="_next" value="https://yourwebsite.com/#contact-thanks">
+      <button type="submit">Send Message</button>
+    </form>
+    <p style="margin-top:15px;">Or email me directly: <a href="mailto:andrew.ruiz215@gmail.com">andrew.ruiz215@gmail.com</a></p>
+  </div>
 
   <button id="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">⬆️</button>
 
   <footer>
-    © 2025 Andrew Ruiz — All rights reserved
+    © 2025 Andrew Ruiz — All rights reserved <br>
+    <a href="https://github.com/aruiz190" target="_blank">GitHub</a> |
+    <a href="https://www.linkedin.com/in/andrew-ruiz-30bb8a25b/" target="_blank">LinkedIn</a> |
+    <a href="mailto:andrew.ruiz215@gmail.com">Email</a>
   </footer>
 </body>
 </html>
-
 
