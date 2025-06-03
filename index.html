@@ -8,6 +8,12 @@
   <link rel="icon" href="favicon.png" type="image/png">
   <meta name="description" content="Andrew Ruiz – Secure Embedded Systems, Full Stack Dev, iOS Engineer">
 
+<script>
+  if (localStorage.getItem("theme") === "dark") {
+    document.documentElement.classList.add("dark");
+  }
+</script>
+ 
   <style>
     :root {
       --bg: #f0f4f8;
@@ -372,22 +378,21 @@
     });
 
     function toggleTheme() {
-      const flash = document.getElementById("theme-flash");
       const sound = document.getElementById("toggle-sound");
       const checkbox = document.getElementById("theme-toggle");
 
       sound.currentTime = 0;
       sound.play();
 
-      flash.style.opacity = 1;
-
-      setTimeout(() => {
-        document.body.classList.toggle('dark', checkbox.checked);
-      }, 150);
-
-      setTimeout(() => {
-        flash.style.opacity = 0;
-      }, 600);
+      if (checkbox.checked) {
+      document.body.classList.add('dark');
+      document.documentElement.classList.add('dark');
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.body.classList.remove('dark');
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem("theme", "light");
+      }
     }
 
     function openResumeModal() {
