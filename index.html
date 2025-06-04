@@ -135,6 +135,15 @@
       display: none;
     }
 
+    .sun-inner {
+      width: 12px;
+      height: 12px;
+      background: #fcd440;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #fcd440;
+      display: block;
+    }
+
     .knob.glow {
       box-shadow:
         0 0 8px rgba(255, 255, 255, 0.4),
@@ -161,10 +170,18 @@
       transform: translateX(40px);
     }
 
+    .theme-toggle-container input:checked + .theme-toggle-label .knob .sun-inner {
+      display: none;
+    }
+    
     .theme-toggle-container input:checked + .theme-toggle-label .knob .moon-inner {
       display: block;
     }
 
+    .theme-toggle-label .knob .moon-inner {
+      display: none;
+    }
+    
     .theme-toggle-container input:checked + .theme-toggle-label .toggle-bg .mountains {
       background: linear-gradient(to top, #2b2b2b, #3a3a52);
     }
