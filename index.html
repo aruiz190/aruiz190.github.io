@@ -80,14 +80,13 @@
     .theme-toggle-label .moon {
       position: absolute;
       top: 50%;
-      left: 10px;
       transform: translateY(-50%);
       width: 30px;
       height: 30px;
       background: white;
       border-radius: 50%;
-      transition: left 0.4s ease, opacity 0.4s ease;
       z-index: 2;
+      transition: left 0.4s ease, opacity 0.4s ease;
     }
 
     .theme-toggle-label .moon {
@@ -143,10 +142,12 @@
     }
 
     .theme-toggle-container input:checked + .theme-toggle-label .sun {
+      transfrom: translate(-100%, -50%);
       opacity: 0;
     }
 
     .theme-toggle-container input:checked + .theme-toggle-label .moon {
+      transfrom: translate(0%, -50%);
       opacity: 1;
     }
 
