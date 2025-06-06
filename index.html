@@ -4,15 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Andrew Ruiz - Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <link rel="icon" href="favicon.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <meta name="description" content="Andrew Ruiz – Secure Embedded Systems, Full Stack Dev, iOS Engineer">
 
-  <script>
-    if (localStorage.getItem("theme") === "dark") {
-      document.documentElement.classList.add("dark");
-    }
-  </script>
+  <!-- Open Graph Metadata -->
+  <meta property="og:title" content="Andrew Ruiz - Portfolio">
+  <meta property="og:description" content="Secure Systems | iOS & Embedded | Real-Time Applications">
+  <meta property="og:image" content="images/preview.png">
+  <meta property="og:url" content="https://aruiz190.github.io/">
+  <meta name="theme-color" content="#3498db">
 
   <style>
     :root {
@@ -29,13 +30,7 @@
     }
 
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
+      margin: 0; padding: 0; box-sizing: border-box;
     }
 
     body {
@@ -45,255 +40,73 @@
       padding: 40px 20px;
       max-width: 900px;
       margin: auto;
-      transition: background 0.5s ease, color 0.5s ease;
     }
 
-    .theme-toggle-container {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      z-index: 1000;
-    }
+    h1 { font-size: 2.5rem; margin-bottom: 5px; }
+    h2 { margin-top: 40px; font-size: 1.8rem; border-bottom: 2px solid var(--primary); padding-bottom: 5px; margin-bottom: 20px; }
+    .subtitle { font-size: 1.2rem; color: #777; margin-bottom: 30px; }
 
-    .theme-toggle-label {
-      display: block;
-      width: 90px;
-      height: 50px;
-      border-radius: 50px;
-      position: relative;
-      background: linear-gradient(to top, #ffe066, #ffae00);
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-      cursor: pointer;
-      transition: background 0.4s ease;
-      overflow: hidden;
-    }
-
-    .toggle-bg {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      border-radius: 50px;
-      overflow: hidden;
-      z-index: 1;
-    }
-
-    .stars {
-      width: 100%;
-      height: 100%;
-      background-image: radial-gradient(#fff 1px, transparent 1px);
-      background-size: 10px 10px;
-      opacity: 0;
-      animation: twinkle 4s infinite alternate;
-      transition: opacity 0.4s ease;
-    }
-
-    @keyframes twinkle {
-      0% { opacity: 0.3; }
-      50% { opacity: 0.5; }
-      100% { opacity: 0.2; }
-    }
-
-    .mountains {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      height: 50%;
-      background: linear-gradient(to top, #ffb347, #ffe066);
-      border-top-left-radius: 60px;
-      border-top-right-radius: 60px;
-      animation: sunrise 5s ease-in-out infinite alternate;
-      transition: background 0.4s ease;
-    }
-
-    @keyframes sunrise {
-      0% { background: linear-gradient(to top, #ffb347, #ffe066); }
-      100% { background: linear-gradient(to top, #ffb700, #fff4b3); }
-    }
-    
-    .knob {
-      position: absolute;
-      top: 5px;
-      left: 5px;
-      width: 40px;
-      height: 40px;
-      background: white;
-      border-radius: 50%;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-      transition: transform 0.4s ease;
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .moon-inner {
-      width: 10px;
-      height: 10px;
-      background: #ccc;
-      border-radius: 50%;
-      opacity: 0.3;
-      display: none;
-    }
-
-    .sun-inner {
-      width: 12px;
-      height: 12px;
-      background: #fcd440;
-      border-radius: 50%;
-      box-shadow: 0 0 10px #fcd440;
-      display: block;
-    }
-
-    .knob.glow {
-      box-shadow:
-        0 0 8px rgba(255, 255, 255, 0.4),
-        0 0 20px rgba(255, 255, 255, 0.2),
-        0 0 30px rgba(255, 255, 255, 0.1);
-      animation: pulseGlow 2s ease-in-out infinite;
-    }
-
-    @keyframes pulseGlow {
-      0%, 100% { box-shadow: 0 0 8px rgba(255,255,255,0.4); }
-      50% { box-shadow: 0 0 20px rgba(255,255,255,0.6); }
-    }
-
-
-    .theme-toggle-container input {
-      display: none;
-    }
-
-    .theme-toggle-container input:checked + .theme-toggle-label {
-      background: linear-gradient(to top, #1e1e1e, #3a3a52);
-    }
-
-    .theme-toggle-container input:checked + .theme-toggle-label .knob {
-      transform: translateX(40px);
-    }
-
-    .theme-toggle-container input:checked + .theme-toggle-label .knob .sun-inner {
-      display: none;
-    }
-    
-    .theme-toggle-container input:checked + .theme-toggle-label .knob .moon-inner {
-      display: block;
-    }
-
-    .theme-toggle-label .knob .moon-inner {
-      display: none;
-    }
-    
-    .theme-toggle-container input:checked + .theme-toggle-label .toggle-bg .mountains {
-      animation:none;
-      background: linear-gradient(to top, #2b2b2b, #3a3a52);
-    }
-
-    nav {
-      background: var(--card-bg);
-      padding: 15px 0;
-      margin-bottom: 30px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    nav ul {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      list-style: none;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: var(--primary);
-      font-weight: bold;
-      padding: 5px 10px;
-      border-radius: 4px;
-    }
-
-    nav a:hover, nav a.active {
-      background: var(--primary);
-      color: white;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 5px;
-    }
-
-    p.subtitle {
-      font-size: 1.2rem;
-      color: #777;
-      margin-bottom: 30px;
-    }
-
-    h2 {
-      margin-top: 40px;
-      font-size: 1.8rem;
-      border-bottom: 2px solid var(--primary);
-      padding-bottom: 5px;
-      margin-bottom: 20px;
-    }
-
-    .section {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.6s ease-out;
-    }
-
-    .section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .section { opacity: 0; transform: translateY(30px); transition: all 0.6s ease-out; }
+    .section.visible { opacity: 1; transform: translateY(0); }
 
     .project {
       background: var(--card-bg);
       padding: 20px;
       margin-bottom: 20px;
       border-left: 5px solid var(--primary);
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       border-radius: 8px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .project:hover {
-      transform: scale(1.02);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
     .project img {
       width: 100%;
       border-radius: 8px;
-      margin-bottom: 15px;
+      margin-bottom: 10px;
     }
 
-    .contact, .resume-section {
+    .tag {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 3px 8px;
+      font-size: 0.8rem;
+      border-radius: 4px;
+      margin: 2px 2px 10px 0;
+    }
+
+    .resume-section, .contact {
       margin-top: 30px;
-      line-height: 1.6;
     }
 
     form input, form textarea {
       width: 100%;
-      margin-bottom: 10px;
       padding: 10px;
-      border: 1px solid #ccc;
+      margin-bottom: 10px;
       border-radius: 5px;
-      font-family: inherit;
+      border: 1px solid #ccc;
     }
 
     form button {
       background: var(--primary);
       color: white;
-      padding: 10px 20px;
       border: none;
+      padding: 10px 20px;
       border-radius: 5px;
       font-weight: bold;
       cursor: pointer;
     }
 
-    form button:hover {
-      background: #217dbb;
+    footer {
+      margin-top: 50px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    footer a {
+      color: var(--primary);
+      margin: 0 10px;
+      text-decoration: none;
     }
 
     #resume-modal {
@@ -304,7 +117,7 @@
       width: 90%;
       height: 90%;
       background: white;
-      z-index: 2000;
+      z-index: 9999;
       box-shadow: 0 0 20px rgba(0,0,0,0.5);
     }
 
@@ -319,71 +132,18 @@
       top: 10px;
       right: 10px;
       font-size: 1.2rem;
-      border: none;
-      background: var(--primary);
-      color: white;
-      border-radius: 5px;
-      padding: 5px 10px;
-      cursor: pointer;
-    }
-
-    #scroll-top {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
       background: var(--primary);
       color: white;
       border: none;
-      padding: 10px 15px;
-      border-radius: 5px;
+      padding: 6px 12px;
+      border-radius: 4px;
       cursor: pointer;
-      z-index: 1000;
-    }
-
-    footer {
-      margin-top: 50px;
-      text-align: center;
-      padding: 20px 0;
-      color: #999;
-    }
-
-    footer a {
-      margin: 0 10px;
-      color: var(--primary);
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-
-    #loader {
-      position: fixed;
-      width: 100vw;
-      height: 100vh;
-      background: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      z-index: 9999;
-    }
-
-    @media (max-width: 600px) {
-      h1 { font-size: 2rem; }
-      h2 { font-size: 1.5rem; }
-      nav ul { flex-direction: column; gap: 20px; padding: 10px 0; }
     }
   </style>
 
   <script>
     window.addEventListener("load", function () {
-      const loader = document.getElementById("loader");
-      loader.style.transition = "opacity 0.5s ease-out";
-      loader.style.opacity = 0;
-      setTimeout(() => loader.style.display = "none", 500);
-
-      const observer = new IntersectionObserver((entries) => {
+      const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
           if (entry.isIntersecting) entry.target.classList.add('visible');
         });
@@ -391,27 +151,6 @@
 
       document.querySelectorAll('.section').forEach(el => observer.observe(el));
     });
-
-    function toggleTheme() {
-      const sound = document.getElementById("toggle-sound");
-      const checkbox = document.getElementById("theme-toggle");
-      const knob = document.querySelector(".knob");
-
-      sound.currentTime = 0;
-      sound.play();
-
-      if (checkbox.checked) {
-        document.body.classList.add('dark');
-        document.documentElement.classList.add('dark');
-        localStorage.setItem("theme", "dark");
-        knob.classList.add("glow");
-      } else {
-        document.body.classList.remove('dark');
-        document.documentElement.classList.remove('dark');
-        localStorage.setItem("theme", "light");
-        knob.classList.remove("glow");
-      }
-    }
 
     function openResumeModal() {
       document.getElementById("resume-modal").style.display = "block";
@@ -422,81 +161,58 @@
     }
   </script>
 </head>
+
 <body>
-  <div id="loader">Loading...</div>
-  <audio id="toggle-sound" src="toggle-click.mp3" preload="auto"></audio>
-
-  <div class="theme-toggle-container">
-  <input type="checkbox" id="theme-toggle" onchange="toggleTheme()" />
-  <label for="theme-toggle" class="theme-toggle-label">
-    <div class="toggle-bg">
-      <div class="stars"></div>
-      <div class="mountains"></div>
-    </div>
-    <div class="knob">
-      <div class="moon-inner"></div>
-      <div class="sun-inner"></div>
-    </div>
-  </label>
-</div>
-
   <h1>Andrew Ruiz</h1>
-  <p class="subtitle">
-    Software Engineer focused on Secure Systems, Real-Time Applications, and Cross-Platform Development (iOS & Embedded)
-  </p>
+  <p class="subtitle">Software Engineer focused on Secure Systems, Real-Time Applications, and Cross-Platform Development (iOS & Embedded)</p>
 
   <h2 id="about" class="section">About Me</h2>
   <p class="section">
-    I'm a Computer Engineering graduate with a strong foundation in <strong>secure embedded systems</strong>, <strong>real-time media protocols</strong>, and <strong>full-stack application development</strong>. I specialize in building robust, high-performance systems that prioritize both <strong>security</strong> and <strong>user experience</strong>. Whether it's encrypting live audio/video streams using custom C libraries or developing collaborative mobile apps with Firebase, I thrive at the intersection of <strong>hardware-level optimization</strong> and <strong>scalable software design</strong>. I enjoy transforming complex ideas into responsive, user-focused tools that deliver measurable value across platforms.
+    I'm a Computer Engineering graduate with a strong foundation in <strong>secure embedded systems</strong>, <strong>real-time media protocols</strong>, and <strong>full-stack application development</strong>. I specialize in building robust, high-performance systems that prioritize both <strong>security</strong> and <strong>user experience</strong>. Whether it's encrypting live audio/video streams using custom C libraries or developing collaborative mobile apps with Firebase, I thrive at the intersection of <strong>hardware-level optimization</strong> and <strong>scalable software design</strong>.
   </p>
 
   <h2 id="projects" class="section">Projects</h2>
 
   <div class="project section">
-    <alt="Encrypted Multiplex Demo">
+    <img src="images/streaming-demo.png" alt="Encrypted Multiplexed Video Demo">
     <h3>Encrypted Multiplexed Video & Messaging System</h3>
+    <span class="tag">C</span><span class="tag">AES</span><span class="tag">POSIX</span><span class="tag">Raspberry Pi 5</span>
     <p>
-      A full-duplex, real-time communication system enabling <strong>video calls, live audio streaming, and encrypted chat messaging</strong> across a private TCP/IP network. Built from scratch in <strong>C with POSIX multi-threading</strong>, the system uses <strong>AES-CTR encryption</strong>, a <strong>custom multiplexed client-server protocol</strong>, and <strong>hardware acceleration on Raspberry Pi 5</strong>. Media is securely routed using <strong>OpenSSL</strong>, <strong>pthreads</strong>, and <strong>POSIX sockets</strong>, ensuring both speed and cryptographic integrity. This system demonstrates deep integration between network protocols, encryption primitives, and hardware-aware optimization.
-      <br><br>
-      Key technologies: C, AES (CTR mode), OpenSSL, Raspberry Pi 5, TCP/IP, POSIX sockets, pthreads.
+      Real-time audio, video, and chat messaging using AES encryption and multithreaded C. Fully built on Raspberry Pi and Mac using custom TCP protocol.
       <br><br>
       <a href="https://github.com/aruiz190/encrypted-multiplex-system" target="_blank">View Code</a>
     </p>
   </div>
 
   <div class="project section">
-    <alt="Bucket List iOS App">
+    <img src="images/bucketlist-demo.png" alt="Bucket List App Demo">
     <h3>Bucket List App (iOS)</h3>
+    <span class="tag">SwiftUI</span><span class="tag">Firebase</span><span class="tag">MVVM</span><span class="tag">Google/Facebook Login</span>
     <p>
-      A fully functional mobile app developed in <strong>SwiftUI</strong> that enables users to create, manage, and share collaborative bucket lists in real time. Authenticated users can create custom lists, add multimedia items with optional images, and view synchronized updates across devices. The app uses <strong>Firebase Authentication</strong> (email/password, Google, and Facebook), <strong>Firebase Firestore</strong> for real-time list syncing, and <strong>Firebase Storage</strong> for image uploads.
-      <br><br>
-      Features include multi-list support, per-user access control, and automatic updates via <strong>SnapshotListeners</strong>. Users can switch between lists, upload images using <strong>PhotosPicker</strong>, and view items with image previews. Built with <strong>MVVM-style modularity</strong>, it ensures responsive performance and scalable user management.
-      <br><br>
-      Key technologies: SwiftUI, Firebase Authentication, Firestore, Firebase Storage, Google Sign-In, Facebook Login, PhotosPicker, MVVM architecture.
+      iOS app that lets users create and manage collaborative bucket lists with live sync and optional image uploads. Authenticated via Google & Facebook.
       <br><br>
       <a href="https://github.com/aruiz190/bucketlist-app" target="_blank">View Code</a>
     </p>
   </div>
 
-
   <div class="project section">
-    <alt="Cloud File Vault System">
+    <img src="images/cloudvault-demo.png" alt="Cloud File Vault System">
     <h3>Cloud-Native File Vault System</h3>
+    <span class="tag">Firebase</span><span class="tag">HTML/CSS/JS</span><span class="tag">AES-256</span>
     <p>
-      A secure cloud-native web application that enables users to upload, encrypt, and store files with access tracking and authentication. Built entirely with <strong>Firebase Authentication</strong> (Google Sign-In), <strong>Firebase Storage</strong>, and <strong>Firestore</strong>, the system uses <strong>CryptoJS AES-256 encryption</strong> to ensure all files are securely encrypted before upload.
-      <br><br>
-      The web interface allows Google-authenticated users to select files, encrypt them on the client side, and upload them to cloud storage. Every upload and access event is logged in Firestore, providing a reliable audit trail. The project is structured as a fully deployable Firebase SPA and serves as a practical example of cloud security in action.
-      <br><br>
-      Key technologies: HTML/CSS/JS, Firebase Authentication, Firestore, Firebase Storage, CryptoJS AES-256, Google Sign-In, Firebase Hosting.
+      Secure cloud app for encrypting and storing user files with real-time logging. Uses Firebase Auth, Storage, Firestore, and client-side AES-256 via CryptoJS.
       <br><br>
       <a href="https://github.com/aruiz190/cloud-native-file-vault" target="_blank">View Code</a>
     </p>
   </div>
 
-
   <h2 id="resume" class="section">Resume</h2>
   <div class="resume-section section">
-    <p>You can <a href="#" onclick="openResumeModal()">📄 Preview Resume</a> or <a href="Andrew.Ruiz_Resume.pdf" target="_blank">Download (PDF)</a>.</p>
+    <p>
+      <a href="#" onclick="openResumeModal()">📄 Preview Resume</a> or 
+      <a href="Andrew.Ruiz_Resume.pdf" target="_blank">Download (PDF)</a> | 
+      <a href="AndrewRuiz.vcf" download>Add to Contacts</a>
+    </p>
   </div>
 
   <div id="resume-modal">
@@ -507,20 +223,20 @@
   <h2 id="contact" class="section">Contact</h2>
   <div class="contact section">
     <form action="https://formspree.io/f/meokqraz" method="POST">
-    <input type="text" name="name" placeholder="Your name" required>
-    <input type="email" name="email" placeholder="Your email" required>
-    <textarea name="message" placeholder="Your message..." rows="5" required></textarea>
-    <input type="hidden" name="_next" value="https://yourwebsite.com/#contact-thanks">
-    <button type="submit">Send Message</button>
+      <input type="text" name="name" placeholder="Your name" required>
+      <input type="email" name="email" placeholder="Your email" required>
+      <textarea name="message" placeholder="Your message..." rows="5" required></textarea>
+      <button type="submit">Send Message</button>
     </form>
     <p style="margin-top:15px;">Or email me directly: <a href="mailto:andrew.ruiz215@gmail.com">andrew.ruiz215@gmail.com</a></p>
   </div>
 
-  <button id="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">⬆️</button>
-
   <footer>
-    © 2025 Andrew Ruiz — All rights reserved <br>
+    © 2025 Andrew Ruiz — All rights reserved<br>
     <a href="https://github.com/aruiz190" target="_blank">GitHub</a> |
-    <a href="https://www.linkedin.com/in/andrew-ruiz-30bb8a25b/" target="_blank">LinkedIn</a> |
+    <a href="https://linkedin.com/in/andrew-ruiz-30bb8a25b/" target="_blank">LinkedIn</a> |
     <a href="mailto:andrew.ruiz215@gmail.com">Email</a>
   </footer>
+</body>
+</html>
+
