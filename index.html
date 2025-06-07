@@ -4,87 +4,73 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Andrew Ruiz - Portfolio</title>
-  <link rel="icon" href="favicon.png" type="image/png">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.png" type="image/png" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-  <meta name="description" content="Andrew Ruiz – Secure Embedded Systems, Full Stack Dev, iOS Engineer">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <meta name="description" content="Andrew Ruiz – Secure Embedded Systems, Full Stack Dev, iOS Engineer" />
 </head>
-
 <body>
-  <header class="hero">
-    <div class="hero-content">
-      <h1>Andrew Ruiz</h1>
-      <p>Engineer specializing in Secure Systems, Embedded Software, and Real-Time Applications</p>
-      <nav>
-        <ul>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#resume">Resume</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
 
-  <main>
-    <section id="projects" class="section fade-in">
-      <h2>Projects</h2>
+  <h1>Andrew Ruiz</h1>
+  <p class="subtitle">Engineer specializing in Secure Systems, Embedded Software, and Real-Time Applications</p>
+  <ul>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#resume">Resume</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 
-      <div class="project-card">
-        <img src="images/streaming-demo.png" alt="Encrypted Video Stream Demo" />
-        <h3>Encrypted Multiplexed Video & Messaging</h3>
-        <p>Full-duplex real-time system using AES-CTR encryption and C sockets. Built for Raspberry Pi and macOS with multithreading and OpenSSL.</p>
-        <span class="tag">C</span><span class="tag">AES</span><span class="tag">TCP/IP</span>
-        <a href="https://github.com/aruiz190/encrypted-multiplex-system" target="_blank">View Code</a>
-      </div>
+  <h2 id="projects" data-aos="fade-up">Projects</h2>
 
-      <div class="project-card">
-        <img src="images/bucketlist-demo.png" alt="iOS Bucket List App" />
-        <h3>Bucket List iOS App</h3>
-        <p>Collaborative app using SwiftUI + Firebase for real-time list sharing and image uploads with Google/Facebook Auth.</p>
-        <span class="tag">SwiftUI</span><span class="tag">Firebase</span><span class="tag">MVVM</span>
-        <a href="https://github.com/aruiz190/bucketlist-app" target="_blank">View Code</a>
-      </div>
+  <div class="project" data-aos="zoom-in">
+    <img src="images/streaming-demo.png" alt="Encrypted Video Stream Demo" />
+    <h3>Encrypted Multiplexed Video & Messaging</h3>
+    <p>Full-duplex real-time system using AES-CTR encryption and C sockets. Built for Raspberry Pi and macOS with multithreading and OpenSSL.<br> CAES TCP/IP <a href="https://github.com/aruiz190/encrypted-multiplex-system" target="_blank">View Code</a></p>
+  </div>
 
-      <div class="project-card">
-        <img src="images/cloudvault-demo.png" alt="File Vault Web App" />
-        <h3>Cloud-Native File Vault</h3>
-        <p>Secure file upload platform using Firebase Auth, Storage, and Firestore. Client-side AES-256 encryption with CryptoJS.</p>
-        <span class="tag">HTML</span><span class="tag">Firebase</span><span class="tag">AES-256</span>
-        <a href="https://github.com/aruiz190/cloud-native-file-vault" target="_blank">View Code</a>
-      </div>
-    </section>
+  <div class="project" data-aos="zoom-in">
+    <img src="images/bucketlist-demo.png" alt="iOS Bucket List App" />
+    <h3>Bucket List iOS App</h3>
+    <p>Collaborative app using SwiftUI + Firebase for real-time list sharing and image uploads with Google/Facebook Auth.<br> SwiftUI Firebase MVVM <a href="https://github.com/aruiz190/bucketlist-app" target="_blank">View Code</a></p>
+  </div>
 
-    <section id="resume" class="section fade-in">
-      <h2>Resume</h2>
-      <p><a href="Andrew.Ruiz_Resume.pdf" target="_blank">📄 Download Resume (PDF)</a></p>
-    </section>
+  <div class="project" data-aos="zoom-in">
+    <img src="images/cloudvault-demo.png" alt="File Vault Web App" />
+    <h3>Cloud-Native File Vault</h3>
+    <p>Secure file upload platform using Firebase Auth, Storage, and Firestore. Client-side AES-256 encryption with CryptoJS.<br> HTML Firebase AES-256 <a href="https://github.com/aruiz190/cloud-native-file-vault" target="_blank">View Code</a></p>
+  </div>
 
-    <section id="contact" class="section fade-in">
-      <h2>Contact</h2>
-      <form action="https://formspree.io/f/meokqraz" method="POST">
-        <input type="text" name="name" placeholder="Your name" required />
-        <input type="email" name="email" placeholder="Your email" required />
-        <textarea name="message" placeholder="Your message..." required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
-      <p class="direct-email">or email me at <a href="mailto:andrew.ruiz215@gmail.com">andrew.ruiz215@gmail.com</a></p>
-    </section>
-  </main>
+  <h2 id="resume" data-aos="fade-up">Resume</h2>
+  <p><a href="Andrew.Ruiz_Resume.pdf" target="_blank">📄 Download Resume (PDF)</a></p>
+
+  <h2 id="contact" data-aos="fade-up">Contact</h2>
+  <form action="https://formspree.io/f/meokqraz" method="POST" onsubmit="showSuccessMessage()">
+    <input type="text" name="name" placeholder="Your name" required />
+    <input type="email" name="email" placeholder="Your email" required />
+    <textarea name="message" placeholder="Your message..." rows="5" required></textarea>
+    <button type="submit">Send Message</button>
+    <p id="form-success" style="display:none; color: green; margin-top: 10px;">✅ Thank you! Your message has been sent.</p>
+  </form>
+  <p style="margin-top: 15px;">or email me at <a href="mailto:andrew.ruiz215@gmail.com">andrew.ruiz215@gmail.com</a></p>
 
   <footer>
-    <p>© 2025 Andrew Ruiz — All rights reserved</p>
+    © 2025 Andrew Ruiz — All rights reserved<br>
     <a href="https://github.com/aruiz190" target="_blank">GitHub</a> |
     <a href="https://linkedin.com/in/andrew-ruiz-30bb8a25b/" target="_blank">LinkedIn</a>
   </footer>
 
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) entry.target.classList.add("visible");
-      });
-    }, { threshold: 0.1 });
+  <button id="scroll-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">⬆️</button>
 
-    document.querySelectorAll(".fade-in").forEach((el) => observer.observe(el));
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    function showSuccessMessage() {
+      setTimeout(() => {
+        document.getElementById("form-success").style.display = "block";
+      }, 1000);
+    }
   </script>
 </body>
 </html>
