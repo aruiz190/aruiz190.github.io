@@ -1,155 +1,183 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+:root {
+  --bg: #f4f9ff;
+  --text: #1e2a3a;
+  --primary: #356bca;
+  --accent: #e1ecff;
+  --card-bg: #ffffff;
+  --card-shadow: rgba(0, 0, 0, 0.1);
 }
 
 body {
+  margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: #e8f1fa;
-  color: #2c3e50;
-  line-height: 1.6;
-  padding: 20px;
+  background-color: var(--bg);
+  color: var(--text);
+  scroll-behavior: smooth;
 }
 
 header {
+  background-color: var(--primary);
+  color: white;
   text-align: center;
-  margin-bottom: 40px;
+  padding: 2rem 1rem;
 }
 
-h1 {
+header h1 {
+  margin: 0;
   font-size: 2.5rem;
-  color: #1c3d6e;
 }
 
 .subtitle {
   font-size: 1.1rem;
-  color: #526981;
-  margin-top: 8px;
+  margin-top: 0.5rem;
 }
 
 nav {
-  margin-top: 20px;
+  margin-top: 1.5rem;
 }
 
 nav a {
-  margin: 0 12px;
+  color: white;
+  margin: 0 1rem;
   text-decoration: none;
-  color: #3498db;
   font-weight: bold;
 }
 
-h2 {
-  font-size: 2rem;
-  color: #1f4d7a;
-  margin-bottom: 20px;
-  border-bottom: 2px solid #3498db;
-  padding-bottom: 5px;
+nav a:hover {
+  text-decoration: underline;
+}
+
+main {
+  padding: 2rem 1rem;
+  max-width: 1000px;
+  margin: auto;
 }
 
 .section {
-  margin-bottom: 60px;
+  margin-bottom: 4rem;
+}
+
+.section h2 {
+  color: var(--primary);
+  margin-bottom: 1rem;
 }
 
 .card {
-  background: #ffffff;
-  border-radius: 10px;
-  padding: 20px;
-  margin-bottom: 25px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: 0 4px 10px var(--card-shadow);
+  padding: 1rem;
+  margin-bottom: 2rem;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
 .card img {
   width: 100%;
-  border-radius: 8px;
-  margin-bottom: 15px;
+  border-radius: 6px;
+  margin-bottom: 1rem;
 }
 
 .card h3 {
-  color: #2c3e50;
-  margin-bottom: 8px;
+  margin-top: 0;
+  color: var(--primary);
 }
 
 .card p {
-  margin-bottom: 10px;
+  line-height: 1.5;
 }
 
 .card a {
-  color: #3498db;
-  font-weight: 600;
+  display: inline-block;
+  margin-top: 0.8rem;
   text-decoration: none;
-}
-
-form {
-  max-width: 600px;
-  margin-top: 20px;
-}
-
-form input, form textarea {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-family: inherit;
-}
-
-form button {
-  background: #3498db;
   color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
+  background-color: var(--primary);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
   font-weight: bold;
 }
 
-form button:hover {
-  background: #227bbf;
+.card a:hover {
+  background-color: #2b5aa2;
 }
 
-.form-status {
-  margin-top: 10px;
-  font-size: 0.9rem;
-  color: green;
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form input,
+form textarea {
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+form button {
+  padding: 0.8rem;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #2b5aa2;
 }
 
 footer {
   text-align: center;
   font-size: 0.9rem;
-  color: #777;
-  margin-top: 40px;
+  padding: 2rem 1rem;
+  background-color: var(--accent);
+  color: var(--text);
 }
 
 footer a {
-  color: #3498db;
-  margin: 0 10px;
+  color: var(--primary);
   text-decoration: none;
+  margin: 0 0.5rem;
 }
 
 #scrollTopBtn {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  padding: 10px 14px;
-  font-size: 16px;
-  background: #3498db;
+  font-size: 1.5rem;
+  background-color: var(--primary);
   color: white;
   border: none;
   border-radius: 50%;
-  cursor: pointer;
+  padding: 0.6rem 1rem;
   display: none;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  z-index: 1000;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  z-index: 100;
 }
 
 #scrollTopBtn:hover {
-  background: #227bbf;
+  background-color: #2b5aa2;
 }
 
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  nav a {
+    display: block;
+    margin: 0.5rem 0;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+}
