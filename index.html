@@ -4,55 +4,68 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Andrew Ruiz - Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="Secure Embedded Systems | iOS Dev | Full Stack">
   <link rel="icon" href="favicon.png" type="image/png" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-
-  <meta name="description" content="Andrew Ruiz – Secure Embedded Systems, Full Stack Dev, iOS Engineer" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
 </head>
 <body>
+  <header>
+    <h1>Andrew Ruiz</h1>
+    <p class="subtitle">Engineer in Secure Systems, Real-Time Software, and Embedded Development</p>
+    <nav>
+      <a href="#projects">Projects</a>
+      <a href="#resume">Resume</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-  <h1>Andrew Ruiz</h1>
-  <p class="subtitle">Engineer specializing in Secure Systems, Embedded Software, and Real-Time Applications</p>
-  <ul>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#resume">Resume</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+  <main>
+    <section id="projects" class="section" data-aos="fade-up">
+      <h2>Projects</h2>
 
-  <h2 id="projects" data-aos="fade-up">Projects</h2>
+      <div class="card">
+        <img src="images/streaming-demo.png" alt="Encrypted Stream Demo">
+        <h3>Encrypted Multiplexed Video & Messaging</h3>
+        <p>Real-time full-duplex system using AES-CTR encryption in C. Uses POSIX sockets, OpenSSL, and multithreading for Raspberry Pi + macOS.</p>
+        <a href="https://github.com/aruiz190/encrypted-multiplex-system" target="_blank">View Code</a>
+      </div>
 
-  <div class="project" data-aos="zoom-in">
-    <img src="images/streaming-demo.png" alt="Encrypted Video Stream Demo" />
-    <h3>Encrypted Multiplexed Video & Messaging</h3>
-    <p>Full-duplex real-time system using AES-CTR encryption and C sockets. Built for Raspberry Pi and macOS with multithreading and OpenSSL.<br> CAES TCP/IP <a href="https://github.com/aruiz190/encrypted-multiplex-system" target="_blank">View Code</a></p>
-  </div>
+      <div class="card" data-aos="fade-up">
+        <img src="images/bucketlist-demo.png" alt="iOS Bucket List App">
+        <h3>Bucket List iOS App</h3>
+        <p>Collaborative SwiftUI app with Firebase backend. Supports Google & Facebook login, image uploads, and MVVM structure.</p>
+        <a href="https://github.com/aruiz190/bucketlist-app" target="_blank">View Code</a>
+      </div>
 
-  <div class="project" data-aos="zoom-in">
-    <img src="images/bucketlist-demo.png" alt="iOS Bucket List App" />
-    <h3>Bucket List iOS App</h3>
-    <p>Collaborative app using SwiftUI + Firebase for real-time list sharing and image uploads with Google/Facebook Auth.<br> SwiftUI Firebase MVVM <a href="https://github.com/aruiz190/bucketlist-app" target="_blank">View Code</a></p>
-  </div>
+      <div class="card" data-aos="fade-up">
+        <img src="images/cloudvault-demo.png" alt="Cloud File Vault App">
+        <h3>Cloud-Native File Vault</h3>
+        <p>Secure AES-256 client-side encryption with Firebase Auth, Storage, Firestore. Uploads & access tracked with real-time logging.</p>
+        <a href="https://github.com/aruiz190/cloud-native-file-vault" target="_blank">View Code</a>
+      </div>
+    </section>
 
-  <div class="project" data-aos="zoom-in">
-    <img src="images/cloudvault-demo.png" alt="File Vault Web App" />
-    <h3>Cloud-Native File Vault</h3>
-    <p>Secure file upload platform using Firebase Auth, Storage, and Firestore. Client-side AES-256 encryption with CryptoJS.<br> HTML Firebase AES-256 <a href="https://github.com/aruiz190/cloud-native-file-vault" target="_blank">View Code</a></p>
-  </div>
+    <section id="resume" class="section" data-aos="fade-up">
+      <h2>Resume</h2>
+      <p><a href="Andrew.Ruiz_Resume.pdf" target="_blank">📄 Download Resume (PDF)</a></p>
+    </section>
 
-  <h2 id="resume" data-aos="fade-up">Resume</h2>
-  <p><a href="Andrew.Ruiz_Resume.pdf" target="_blank">📄 Download Resume (PDF)</a></p>
+    <section id="contact" class="section" data-aos="fade-up">
+      <h2>Contact</h2>
+      <form action="https://formspree.io/f/meokqraz" method="POST" id="contact-form">
+        <input type="text" name="name" placeholder="Your name" required>
+        <input type="email" name="email" placeholder="Your email" required>
+        <textarea name="message" placeholder="Your message..." rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+        <p class="form-status" id="form-status"></p>
+      </form>
+      <p>or email me directly at <a href="mailto:andrew.ruiz215@gmail.com">andrew.ruiz215@gmail.com</a></p>
+    </section>
+  </main>
 
-  <h2 id="contact" data-aos="fade-up">Contact</h2>
-  <form action="https://formspree.io/f/meokqraz" method="POST" onsubmit="showSuccessMessage()">
-    <input type="text" name="name" placeholder="Your name" required />
-    <input type="email" name="email" placeholder="Your email" required />
-    <textarea name="message" placeholder="Your message..." rows="5" required></textarea>
-    <button type="submit">Send Message</button>
-    <p id="form-success" style="display:none; color: green; margin-top: 10px;">✅ Thank you! Your message has been sent.</p>
-  </form>
-  <p style="margin-top: 15px;">or email me at <a href="mailto:andrew.ruiz215@gmail.com">andrew.ruiz215@gmail.com</a></p>
+  <button id="scrollTopBtn" title="Back to top">⬆️</button>
 
   <footer>
     © 2025 Andrew Ruiz — All rights reserved<br>
@@ -60,18 +73,9 @@
     <a href="https://linkedin.com/in/andrew-ruiz-30bb8a25b/" target="_blank">LinkedIn</a>
   </footer>
 
-  <button id="scroll-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">⬆️</button>
-
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    AOS.init();
-
-    function showSuccessMessage() {
-      setTimeout(() => {
-        document.getElementById("form-success").style.display = "block";
-      }, 1000);
-    }
-  </script>
+  <script src="script.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
 </body>
 </html>
 
