@@ -7,45 +7,41 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// Scroll to top button
-const scrollBtn = document.getElementById("scrollTopBtn");
+const scrollTopBtn = document.getElementById("scrollTopBtn");
 
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 300) {
-    scrollBtn.style.display = "block";
+window.onscroll = function () {
+  if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+    scrollTopBtn.style.display = "block";
   } else {
-    scrollBtn.style.display = "none";
+    scrollTopBtn.style.display = "none";
+  }
+};
+
+scrollTopBtn.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+const form = document.getElementById("contact-form");
+const status = document.getElementById("form-status");
+
+form?.addEventListener("submit", async function (event) {
+  event.preventDefault();
+  const data = new FormData(form);
+  const response = await fetch(form.action, {
+    method: form.method,
+    body: data,
+    headers: {
+      'Accept': 'application/json'
+    }
+  });
+
+  if (response.ok) {
+    status.innerHTML = "Message sent! ✅";
+    form.reset();
+  } else {
+    status.innerHTML = "Something went wrong. Please try again.";
   }
 });
 
-scrollBtn.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
-
-// Form Success Message
-const form = document.querySelector("form");
-const statusMsg = document.createElement("p");
-statusMsg.classList.add("form-status");
-form.appendChild(statusMsg);
-
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
-  const data = new FormData(form);
-  fetch(form.action, {
-    method: form.method,
-    body: data,
-    headers: { Accept: "application/json" },
-  })
-    .then(response => {
-      if (response.ok) {
-        statusMsg.textContent = "Message sent! ✅";
-        form.reset();
-      } else {
-        statusMsg.textContent = "Oops! Something went wrong.";
-      }
-    })
-    .catch(error => {
-      statusMsg.textContent = "Oops! Network error.";
-    });
 });
 
