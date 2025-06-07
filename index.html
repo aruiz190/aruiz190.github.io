@@ -7,11 +7,12 @@
   <meta name="description" content="Secure Embedded Systems | iOS Dev | Full Stack">
   <link rel="icon" href="favicon.png" type="image/png" />
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
 </head>
+
 <body>
-  <header>
+  <header data-aos="fade-down">
     <h1>Andrew Ruiz</h1>
     <p class="subtitle">Engineer in Secure Systems, Real-Time Software, and Embedded Development</p>
     <nav>
@@ -25,21 +26,21 @@
     <section id="projects" class="section" data-aos="fade-up">
       <h2>Projects</h2>
 
-      <div class="card" data-aos="fade-up">
+      <div class="card" data-aos="zoom-in">
         <img src="images/streaming-demo.png" alt="Encrypted Stream Demo">
         <h3>Encrypted Multiplexed Video & Messaging</h3>
         <p>Real-time full-duplex system using AES-CTR encryption in C. Uses POSIX sockets, OpenSSL, and multithreading for Raspberry Pi + macOS.</p>
         <a href="https://github.com/aruiz190/encrypted-multiplex-system" target="_blank">View Code</a>
       </div>
 
-      <div class="card" data-aos="fade-up">
+      <div class="card" data-aos="flip-up" data-aos-delay="100">
         <img src="images/bucketlist-demo.png" alt="iOS Bucket List App">
         <h3>Bucket List iOS App</h3>
         <p>Collaborative SwiftUI app with Firebase backend. Supports Google & Facebook login, image uploads, and MVVM structure.</p>
         <a href="https://github.com/aruiz190/bucketlist-app" target="_blank">View Code</a>
       </div>
 
-      <div class="card" data-aos="fade-up">
+      <div class="card" data-aos="fade-left" data-aos-delay="200">
         <img src="images/cloudvault-demo.png" alt="Cloud File Vault App">
         <h3>Cloud-Native File Vault</h3>
         <p>Secure AES-256 client-side encryption with Firebase Auth, Storage, Firestore. Uploads & access tracked with real-time logging.</p>
@@ -47,12 +48,12 @@
       </div>
     </section>
 
-    <section id="resume" class="section" data-aos="fade-up">
+    <section id="resume" class="section" data-aos="zoom-in-up">
       <h2>Resume</h2>
       <p><a href="Andrew.Ruiz_Resume.pdf" target="_blank">📄 Download Resume (PDF)</a></p>
     </section>
 
-    <section id="contact" class="section" data-aos="fade-up">
+    <section id="contact" class="section" data-aos="fade-right">
       <h2>Contact</h2>
       <form action="https://formspree.io/f/meokqraz" method="POST" id="contact-form">
         <input type="text" name="name" placeholder="Your name" required>
@@ -67,16 +68,20 @@
 
   <button id="scrollTopBtn" title="Back to top">⬆️</button>
 
-  <footer>
+  <footer data-aos="fade-up">
     © 2025 Andrew Ruiz — All rights reserved<br>
     <a href="https://github.com/aruiz190" target="_blank">GitHub</a> |
     <a href="https://linkedin.com/in/andrew-ruiz-30bb8a25b/" target="_blank">LinkedIn</a>
   </footer>
 
-  <!-- Scripts at bottom for best performance -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init();
+    AOS.init({
+      duration: 900,
+      easing: 'ease-in-out',
+      once: true,
+      delay: 100
+    });
   </script>
   <script src="script.js"></script>
 </body>
