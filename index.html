@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,10 +7,8 @@
   <meta name="description" content="Secure Embedded Systems | iOS Dev | Full Stack">
   <link rel="icon" href="favicon.png" type="image/png" />
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
-  <script src="script.js"></script>
-  <button id="scrollTopBtn" title="Go to top">↑</button>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
 </head>
 <body>
   <header>
@@ -29,7 +25,7 @@
     <section id="projects" class="section" data-aos="fade-up">
       <h2>Projects</h2>
 
-      <div class="card">
+      <div class="card" data-aos="fade-up">
         <img src="images/streaming-demo.png" alt="Encrypted Stream Demo">
         <h3>Encrypted Multiplexed Video & Messaging</h3>
         <p>Real-time full-duplex system using AES-CTR encryption in C. Uses POSIX sockets, OpenSSL, and multithreading for Raspberry Pi + macOS.</p>
@@ -77,9 +73,12 @@
     <a href="https://linkedin.com/in/andrew-ruiz-30bb8a25b/" target="_blank">LinkedIn</a>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- Scripts at bottom for best performance -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>AOS.init();</script>
+  <script>
+    AOS.init();
+  </script>
+  <script src="script.js"></script>
 </body>
 </html>
 
