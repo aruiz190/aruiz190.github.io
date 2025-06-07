@@ -1,243 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="style.css">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Andrew Ruiz - Portfolio</title>
   <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <meta name="description" content="Andrew Ruiz – Secure Embedded Systems, Full Stack Dev, iOS Engineer">
-
-  <!-- Open Graph Metadata -->
-  <meta property="og:title" content="Andrew Ruiz - Portfolio">
-  <meta property="og:description" content="Secure Systems | iOS & Embedded | Real-Time Applications">
-  <meta property="og:image" content="images/preview.png">
-  <meta property="og:url" content="https://aruiz190.github.io/">
-  <meta name="theme-color" content="#3498db">
-
-  <style>
-    :root {
-      --bg: #e0f0ff;
-      --text: #2c3e50;
-      --primary: #3498db;
-      --card-bg: #f6fbff;
-    }
-
-    .dark {
-      --bg: #121e2e;
-      --text: #f5f5f5;
-      --card-bg: #1c2c3c;
-    }
-
-    * {
-      margin: 0; padding: 0; box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      padding: 40px 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    h1 { font-size: 2.5rem; margin-bottom: 5px; }
-    h2 { margin-top: 40px; font-size: 1.8rem; border-bottom: 2px solid var(--primary); padding-bottom: 5px; margin-bottom: 20px; }
-    .subtitle { font-size: 1.2rem; color: #777; margin-bottom: 30px; }
-
-    .section { opacity: 0; transform: translateY(30px); transition: all 0.6s ease-out; }
-    .section.visible { opacity: 1; transform: translateY(0); }
-
-    .project {
-      background: var(--card-bg);
-      padding: 20px;
-      margin-bottom: 20px;
-      border-left: 5px solid var(--primary);
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-
-    .project img {
-      width: 100%;
-      border-radius: 8px;
-      margin-bottom: 10px;
-    }
-
-    .tag {
-      display: inline-block;
-      background: var(--primary);
-      color: white;
-      padding: 3px 8px;
-      font-size: 0.8rem;
-      border-radius: 4px;
-      margin: 2px 2px 10px 0;
-    }
-
-    .resume-section, .contact {
-      margin-top: 30px;
-    }
-
-    form input, form textarea {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-
-    form button {
-      background: var(--primary);
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    footer {
-      margin-top: 50px;
-      text-align: center;
-      font-size: 0.9rem;
-      color: #777;
-    }
-
-    footer a {
-      color: var(--primary);
-      margin: 0 10px;
-      text-decoration: none;
-    }
-
-    #resume-modal {
-      display: none;
-      position: fixed;
-      top: 5%;
-      left: 5%;
-      width: 90%;
-      height: 90%;
-      background: white;
-      z-index: 9999;
-      box-shadow: 0 0 20px rgba(0,0,0,0.5);
-    }
-
-    #resume-modal iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-    #resume-modal button {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      font-size: 1.2rem;
-      background: var(--primary);
-      color: white;
-      border: none;
-      padding: 6px 12px;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-  </style>
-
-  <script>
-    window.addEventListener("load", function () {
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) entry.target.classList.add('visible');
-        });
-      }, { threshold: 0.1 });
-
-      document.querySelectorAll('.section').forEach(el => observer.observe(el));
-    });
-
-    function openResumeModal() {
-      document.getElementById("resume-modal").style.display = "block";
-    }
-
-    function closeResumeModal() {
-      document.getElementById("resume-modal").style.display = "none";
-    }
-  </script>
 </head>
 
 <body>
-  <h1>Andrew Ruiz</h1>
-  <p class="subtitle">Software Engineer focused on Secure Systems, Real-Time Applications, and Cross-Platform Development (iOS & Embedded)</p>
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Andrew Ruiz</h1>
+      <p>Engineer specializing in Secure Systems, Embedded Software, and Real-Time Applications</p>
+      <nav>
+        <ul>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#resume">Resume</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-  <h2 id="about" class="section">About Me</h2>
-  <p class="section">
-    I'm a Computer Engineering graduate with a strong foundation in <strong>secure embedded systems</strong>, <strong>real-time media protocols</strong>, and <strong>full-stack application development</strong>. I specialize in building robust, high-performance systems that prioritize both <strong>security</strong> and <strong>user experience</strong>. Whether it's encrypting live audio/video streams using custom C libraries or developing collaborative mobile apps with Firebase, I thrive at the intersection of <strong>hardware-level optimization</strong> and <strong>scalable software design</strong>.
-  </p>
+  <main>
+    <section id="projects" class="section fade-in">
+      <h2>Projects</h2>
 
-  <h2 id="projects" class="section">Projects</h2>
+      <div class="project-card">
+        <img src="images/streaming-demo.png" alt="Encrypted Video Stream Demo" />
+        <h3>Encrypted Multiplexed Video & Messaging</h3>
+        <p>Full-duplex real-time system using AES-CTR encryption and C sockets. Built for Raspberry Pi and macOS with multithreading and OpenSSL.</p>
+        <span class="tag">C</span><span class="tag">AES</span><span class="tag">TCP/IP</span>
+        <a href="https://github.com/aruiz190/encrypted-multiplex-system" target="_blank">View Code</a>
+      </div>
 
-  <div class="project section">
-    <img src="images/streaming-demo.png" alt="Encrypted Multiplexed Video Demo">
-    <h3>Encrypted Multiplexed Video & Messaging System</h3>
-    <span class="tag">C</span><span class="tag">AES</span><span class="tag">POSIX</span><span class="tag">Raspberry Pi 5</span>
-    <p>
-      Real-time audio, video, and chat messaging using AES encryption and multithreaded C. Fully built on Raspberry Pi and Mac using custom TCP protocol.
-      <br><br>
-      <a href="https://github.com/aruiz190/encrypted-multiplex-system" target="_blank">View Code</a>
-    </p>
-  </div>
+      <div class="project-card">
+        <img src="images/bucketlist-demo.png" alt="iOS Bucket List App" />
+        <h3>Bucket List iOS App</h3>
+        <p>Collaborative app using SwiftUI + Firebase for real-time list sharing and image uploads with Google/Facebook Auth.</p>
+        <span class="tag">SwiftUI</span><span class="tag">Firebase</span><span class="tag">MVVM</span>
+        <a href="https://github.com/aruiz190/bucketlist-app" target="_blank">View Code</a>
+      </div>
 
-  <div class="project section">
-    <img src="images/bucketlist-demo.png" alt="Bucket List App Demo">
-    <h3>Bucket List App (iOS)</h3>
-    <span class="tag">SwiftUI</span><span class="tag">Firebase</span><span class="tag">MVVM</span><span class="tag">Google/Facebook Login</span>
-    <p>
-      iOS app that lets users create and manage collaborative bucket lists with live sync and optional image uploads. Authenticated via Google & Facebook.
-      <br><br>
-      <a href="https://github.com/aruiz190/bucketlist-app" target="_blank">View Code</a>
-    </p>
-  </div>
+      <div class="project-card">
+        <img src="images/cloudvault-demo.png" alt="File Vault Web App" />
+        <h3>Cloud-Native File Vault</h3>
+        <p>Secure file upload platform using Firebase Auth, Storage, and Firestore. Client-side AES-256 encryption with CryptoJS.</p>
+        <span class="tag">HTML</span><span class="tag">Firebase</span><span class="tag">AES-256</span>
+        <a href="https://github.com/aruiz190/cloud-native-file-vault" target="_blank">View Code</a>
+      </div>
+    </section>
 
-  <div class="project section">
-    <img src="images/cloudvault-demo.png" alt="Cloud File Vault System">
-    <h3>Cloud-Native File Vault System</h3>
-    <span class="tag">Firebase</span><span class="tag">HTML/CSS/JS</span><span class="tag">AES-256</span>
-    <p>
-      Secure cloud app for encrypting and storing user files with real-time logging. Uses Firebase Auth, Storage, Firestore, and client-side AES-256 via CryptoJS.
-      <br><br>
-      <a href="https://github.com/aruiz190/cloud-native-file-vault" target="_blank">View Code</a>
-    </p>
-  </div>
+    <section id="resume" class="section fade-in">
+      <h2>Resume</h2>
+      <p><a href="Andrew.Ruiz_Resume.pdf" target="_blank">📄 Download Resume (PDF)</a></p>
+    </section>
 
-  <h2 id="resume" class="section">Resume</h2>
-  <div class="resume-section section">
-    <p>
-      <a href="#" onclick="openResumeModal()">📄 Preview Resume</a> or 
-      <a href="Andrew.Ruiz_Resume.pdf" target="_blank">Download (PDF)</a> | 
-      <a href="AndrewRuiz.vcf" download>Add to Contacts</a>
-    </p>
-  </div>
-
-  <div id="resume-modal">
-    <iframe src="Andrew.Ruiz_Resume.pdf"></iframe>
-    <button onclick="closeResumeModal()">Close</button>
-  </div>
-
-  <h2 id="contact" class="section">Contact</h2>
-  <div class="contact section">
-    <form action="https://formspree.io/f/meokqraz" method="POST">
-      <input type="text" name="name" placeholder="Your name" required>
-      <input type="email" name="email" placeholder="Your email" required>
-      <textarea name="message" placeholder="Your message..." rows="5" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-    <p style="margin-top:15px;">Or email me directly: <a href="mailto:andrew.ruiz215@gmail.com">andrew.ruiz215@gmail.com</a></p>
-  </div>
+    <section id="contact" class="section fade-in">
+      <h2>Contact</h2>
+      <form action="https://formspree.io/f/meokqraz" method="POST">
+        <input type="text" name="name" placeholder="Your name" required />
+        <input type="email" name="email" placeholder="Your email" required />
+        <textarea name="message" placeholder="Your message..." required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+      <p class="direct-email">or email me at <a href="mailto:andrew.ruiz215@gmail.com">andrew.ruiz215@gmail.com</a></p>
+    </section>
+  </main>
 
   <footer>
-    © 2025 Andrew Ruiz — All rights reserved<br>
+    <p>© 2025 Andrew Ruiz — All rights reserved</p>
     <a href="https://github.com/aruiz190" target="_blank">GitHub</a> |
-    <a href="https://linkedin.com/in/andrew-ruiz-30bb8a25b/" target="_blank">LinkedIn</a> |
-    <a href="mailto:andrew.ruiz215@gmail.com">Email</a>
+    <a href="https://linkedin.com/in/andrew-ruiz-30bb8a25b/" target="_blank">LinkedIn</a>
   </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll(".fade-in").forEach((el) => observer.observe(el));
+  </script>
 </body>
 </html>
 
