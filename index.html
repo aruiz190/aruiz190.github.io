@@ -8,10 +8,10 @@
 
   <meta
     name="description"
-    content="Andrew Ruiz — Computer Engineer focused on secure systems, embedded development, real-time software, and full-stack applications."
+    content="Andrew Ruiz — Computer Engineer focused on secure systems, embedded development, robotics, real-time software, and full-stack applications."
   />
 
-  <link rel="icon" href="images/andrew-profile.jpg" type="image/jpeg" />
+  <link rel="icon" href="./images/andrew-profile.jpg" type="image/jpeg" />
 
   <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -33,8 +33,8 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
   />
 
-  <link rel="stylesheet" href="style.css" />
-  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="./style.css" />
+  <script src="./script.js" defer></script>
 </head>
 
 <body>
@@ -74,12 +74,12 @@
   </header>
 
   <main>
-    <!-- Hero / About -->
+    <!-- Hero -->
     <section class="hero" id="about">
       <div class="hero-content">
         <div class="hero-image-wrap">
           <img
-            src="images/andrew-profile.jpg"
+            src="./images/andrew-profile.jpg"
             alt="Andrew Ruiz"
             class="profile-image"
           />
@@ -93,16 +93,16 @@
           <h2>Building secure, high-performance systems that scale.</h2>
 
           <p class="hero-description">
-            Computer Engineer focused on secure embedded systems, real-time software,
-            iOS development, and full-stack applications. I enjoy building systems
-            that are efficient, practical, and secure.
+            Computer Engineering graduate focused on secure embedded systems,
+            robotics, real-time software, iOS development, and full-stack applications.
+            I enjoy building systems that are practical, efficient, and secure.
           </p>
 
           <div class="hero-actions">
             <a href="#projects" class="btn btn-primary">View Projects</a>
 
             <a
-              href="Andrew.Ruiz_Resume.pdf"
+              href="./Andrew.Ruiz_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               class="btn btn-secondary"
@@ -118,7 +118,7 @@
             </a>
 
             <a
-              href="https://linkedin.com/in/andrew-ruiz-30bb8a25b/"
+              href="https://linkedin.com/in/andrew-ruiz"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -139,18 +139,18 @@
     <section class="highlights-section">
       <div class="highlights-grid">
         <div class="highlight-card">
-          <span>Focus</span>
-          <strong>Secure Systems</strong>
-        </div>
-
-        <div class="highlight-card">
-          <span>Core Areas</span>
-          <strong>Embedded + Full Stack</strong>
-        </div>
-
-        <div class="highlight-card">
           <span>Degree</span>
           <strong>B.S. Computer Engineering</strong>
+        </div>
+
+        <div class="highlight-card">
+          <span>Focus</span>
+          <strong>Secure Systems + Robotics</strong>
+        </div>
+
+        <div class="highlight-card">
+          <span>Core Stack</span>
+          <strong>C++ / Python / SwiftUI / Firebase</strong>
         </div>
       </div>
     </section>
@@ -161,13 +161,81 @@
         <p class="eyebrow">Selected Work</p>
         <h2>Featured Projects</h2>
         <p>
-          These projects highlight my work in secure communication, iOS development,
-          cloud systems, and real-time software.
+          Projects showing my work in autonomous systems, secure communication,
+          mobile development, cloud platforms, and full-stack applications.
         </p>
       </div>
 
       <div class="projects-grid">
         <!-- Project 1 -->
+        <article class="project-card">
+          <div class="project-top drone">
+            <div class="project-icon">
+              <i class="fas fa-helicopter"></i>
+            </div>
+
+            <div class="tech-list">
+              <span>RPi5</span>
+              <span>Kyber</span>
+              <span>MAVSDK</span>
+              <span>Python</span>
+            </div>
+          </div>
+
+          <div class="project-body">
+            <h3>Autonomous Drone Docking System</h3>
+
+            <p>
+              Developed a secure autonomous UAV-UGV docking system using GPS,
+              IR, LIDAR, optical flow, MAVSDK, MAVProxy, QGroundControl, and
+              Kalman filtering for improved docking precision.
+            </p>
+
+            <a
+              href="https://github.com/aruiz190"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View GitHub →
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-card">
+          <div class="project-top mobile">
+            <div class="project-icon">
+              <i class="fas fa-mobile-screen-button"></i>
+            </div>
+
+            <div class="tech-list">
+              <span>SwiftUI</span>
+              <span>Firebase</span>
+              <span>React</span>
+              <span>TypeScript</span>
+            </div>
+          </div>
+
+          <div class="project-body">
+            <h3>Full-Stack Bucket List App</h3>
+
+            <p>
+              Built a real-time iOS app with Firebase Auth, Google Sign-In,
+              Firestore security rules, photo sharing, and a React + TypeScript
+              dashboard for moderation and analytics.
+            </p>
+
+            <a
+              href="https://github.com/aruiz190/bucketlist-app"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Code →
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
         <article class="project-card">
           <div class="project-top security">
             <div class="project-icon">
@@ -185,79 +253,13 @@
             <h3>Encrypted Multiplexed Video & Messaging</h3>
 
             <p>
-              Real-time full-duplex communication system using AES-CTR encryption in C.
-              Built with POSIX sockets, OpenSSL cryptography, and multithreading for
-              communication between Raspberry Pi and macOS.
+              Real-time full-duplex communication system using AES-CTR encryption
+              in C with POSIX sockets, OpenSSL cryptography, and multithreading
+              for Raspberry Pi and macOS communication.
             </p>
 
             <a
               href="https://github.com/aruiz190/encrypted-multiplex-system"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View Code →
-            </a>
-          </div>
-        </article>
-
-        <!-- Project 2 -->
-        <article class="project-card">
-          <div class="project-top mobile">
-            <div class="project-icon">
-              <i class="fas fa-mobile-screen-button"></i>
-            </div>
-
-            <div class="tech-list">
-              <span>SwiftUI</span>
-              <span>Firebase</span>
-              <span>iOS</span>
-            </div>
-          </div>
-
-          <div class="project-body">
-            <h3>Bucket List iOS App</h3>
-
-            <p>
-              Collaborative iOS application built with SwiftUI and Firebase.
-              Features authentication, real-time syncing, and cloud-backed storage
-              for managing shared bucket lists.
-            </p>
-
-            <a
-              href="https://github.com/aruiz190/bucketlist-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View Code →
-            </a>
-          </div>
-        </article>
-
-        <!-- Project 3 -->
-        <article class="project-card">
-          <div class="project-top cloud">
-            <div class="project-icon">
-              <i class="fas fa-cloud-arrow-up"></i>
-            </div>
-
-            <div class="tech-list">
-              <span>AES-256</span>
-              <span>Firebase</span>
-              <span>Cloud</span>
-            </div>
-          </div>
-
-          <div class="project-body">
-            <h3>Cloud-Native File Vault</h3>
-
-            <p>
-              Secure file storage platform using client-side AES-256 encryption.
-              Integrates Firebase Authentication, Cloud Storage, and Firestore for
-              protected cloud-based file management.
-            </p>
-
-            <a
-              href="https://github.com/aruiz190/cloud-native-file-vault"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -274,13 +276,13 @@
         <p class="eyebrow">Professional Info</p>
         <h2>Resume</h2>
         <p>
-          You can preview my resume directly below, open it in a new tab, or download it.
+          You can preview my resume below, open it in a new tab, or download it.
         </p>
       </div>
 
       <div class="resume-actions">
         <a
-          href="Andrew.Ruiz_Resume.pdf"
+          href="./Andrew.Ruiz_Resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
           class="btn btn-primary"
@@ -289,7 +291,7 @@
         </a>
 
         <a
-          href="Andrew.Ruiz_Resume.pdf"
+          href="./Andrew.Ruiz_Resume.pdf"
           download
           class="btn btn-secondary"
         >
@@ -299,7 +301,7 @@
 
       <div class="resume-viewer">
         <iframe
-          src="Andrew.Ruiz_Resume.pdf"
+          src="./Andrew.Ruiz_Resume.pdf"
           title="Andrew Ruiz Resume"
         ></iframe>
       </div>
@@ -315,7 +317,8 @@
         <p class="eyebrow">Background</p>
         <h2>Experience</h2>
         <p>
-          A mix of technical work, engineering projects, and leadership experience.
+          A mix of software engineering, CNC programming, tutoring, leadership,
+          and technical project experience.
         </p>
       </div>
 
@@ -324,11 +327,12 @@
           <div class="timeline-dot"></div>
 
           <div>
-            <h3>Computer Engineering Graduate</h3>
-            <p class="timeline-meta">Cal Poly Pomona</p>
+            <h3>Software Engineering Intern</h3>
+            <p class="timeline-meta">Open Source Robotics Foundation · Jun 2024 – Aug 2024</p>
             <p>
-              Built a strong foundation in embedded systems, digital design,
-              software engineering, computer architecture, and secure system development.
+              Contributed to ROS middleware communication protocols, implemented
+              features in C++ and Python, improved system performance and reliability,
+              and collaborated with a distributed global development team.
             </p>
           </div>
         </article>
@@ -337,11 +341,12 @@
           <div class="timeline-dot"></div>
 
           <div>
-            <h3>Software & Security Projects</h3>
-            <p class="timeline-meta">Personal / Academic Work</p>
+            <h3>CNC Programmer and Operator</h3>
+            <p class="timeline-meta">Hugo’s Specialties Inc. · Apr 2023 – Apr 2025</p>
             <p>
-              Designed and built secure communication systems, cloud-backed apps,
-              and iOS projects using C, OpenSSL, SwiftUI, Firebase, and web technologies.
+              Programmed and operated CNC machines for precision components,
+              optimized G-code, reduced production time, improved tool life,
+              and collaborated with engineering teams on technical drawings.
             </p>
           </div>
         </article>
@@ -350,11 +355,26 @@
           <div class="timeline-dot"></div>
 
           <div>
-            <h3>Youth Leader</h3>
-            <p class="timeline-meta">Think Together</p>
+            <h3>Older Youth Leader / Tutor</h3>
+            <p class="timeline-meta">Think Together · Nov 2025 – Present</p>
             <p>
-              Supported students through mentorship, classroom management,
-              communication, and leadership in an educational environment.
+              Lead after-school programs, tutor students in STEM and Driver’s
+              Education concepts, maintain organized student records, and support
+              daily program operations.
+            </p>
+          </div>
+        </article>
+
+        <article class="timeline-card">
+          <div class="timeline-dot"></div>
+
+          <div>
+            <h3>Tech Study Group Facilitator</h3>
+            <p class="timeline-meta">Cal Poly Pomona · Jan 2024 – May 2024</p>
+            <p>
+              Organized weekly peer-led study sessions for Operating Systems,
+              Cybersecurity, and related courses while helping students debug code,
+              review concepts, and prepare for exams.
             </p>
           </div>
         </article>
@@ -367,8 +387,8 @@
         <p class="eyebrow">Toolbox</p>
         <h2>Technical Skills</h2>
         <p>
-          Technologies I use across programming, mobile development, cloud systems,
-          and software engineering.
+          Technologies I use across programming, robotics, mobile development,
+          cloud platforms, DevOps, and software engineering.
         </p>
       </div>
 
@@ -428,9 +448,9 @@
               <span>CSS</span>
             </div>
 
-            <div class="skill-chip swift">
-              <i class="devicon-swift-plain colored"></i>
-              <span>Swift</span>
+            <div class="skill-chip ruby">
+              <i class="devicon-ruby-plain colored"></i>
+              <span>Ruby</span>
             </div>
 
             <div class="skill-chip vhdl">
@@ -468,6 +488,11 @@
             <div class="skill-chip vue">
               <i class="devicon-vuejs-plain colored"></i>
               <span>Vue.js</span>
+            </div>
+
+            <div class="skill-chip angular">
+              <i class="devicon-angularjs-plain colored"></i>
+              <span>Angular.js</span>
             </div>
 
             <div class="skill-chip openssl">
@@ -522,6 +547,11 @@
               <span>Jira</span>
             </div>
 
+            <div class="skill-chip figma">
+              <i class="devicon-figma-plain colored"></i>
+              <span>Figma</span>
+            </div>
+
             <div class="skill-chip powerbi">
               <i class="fas fa-chart-column"></i>
               <span>Power BI</span>
@@ -530,6 +560,16 @@
             <div class="skill-chip raspberry">
               <i class="devicon-raspberrypi-line colored"></i>
               <span>Raspberry Pi</span>
+            </div>
+
+            <div class="skill-chip devops">
+              <i class="fas fa-code-branch"></i>
+              <span>DevOps</span>
+            </div>
+
+            <div class="skill-chip ai">
+              <i class="fas fa-wand-magic-sparkles"></i>
+              <span>AI Tools</span>
             </div>
           </div>
         </div>
@@ -566,11 +606,11 @@
           <p>
             <strong>LinkedIn:</strong>
             <a
-              href="https://linkedin.com/in/andrew-ruiz-30bb8a25b/"
+              href="https://linkedin.com/in/andrew-ruiz"
               target="_blank"
               rel="noopener noreferrer"
             >
-              linkedin.com/in/andrew-ruiz-30bb8a25b
+              linkedin.com/in/andrew-ruiz
             </a>
           </p>
         </div>
@@ -605,14 +645,14 @@
       </a>
 
       <a
-        href="https://linkedin.com/in/andrew-ruiz-30bb8a25b/"
+        href="https://linkedin.com/in/andrew-ruiz"
         target="_blank"
         rel="noopener noreferrer"
       >
         LinkedIn
       </a>
 
-      <a href="Andrew.Ruiz_Resume.pdf" target="_blank" rel="noopener noreferrer">
+      <a href="./Andrew.Ruiz_Resume.pdf" target="_blank" rel="noopener noreferrer">
         Resume
       </a>
     </div>
