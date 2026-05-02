@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const contactForm = document.querySelector(".contact-form");
   const formMessage = document.getElementById("formMessage");
 
-  // Load saved theme
   const savedTheme = localStorage.getItem("theme");
 
   if (savedTheme === "light") {
@@ -19,7 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Theme toggle
   if (themeToggle) {
     themeToggle.addEventListener("click", () => {
       body.classList.toggle("light");
@@ -31,14 +29,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Mobile menu
   if (menuToggle && navLinks) {
     menuToggle.addEventListener("click", () => {
       navLinks.classList.toggle("open");
     });
   }
 
-  // Close mobile menu after clicking nav links
   if (navLinks) {
     navLinks.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
@@ -47,7 +43,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Scroll progress and back-to-top button
   window.addEventListener("scroll", () => {
     const scrollTop = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -66,7 +61,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Back to top
   if (backToTop) {
     backToTop.addEventListener("click", () => {
       window.scrollTo({
@@ -76,7 +70,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Reveal animations
   const revealElements = document.querySelectorAll(
     ".section-heading, .project-card, .timeline-card, .skill-group, .contact-card, .contact-form, .highlight-card, .resume-viewer, .resume-actions"
   );
@@ -103,7 +96,6 @@ document.addEventListener("DOMContentLoaded", () => {
     revealObserver.observe(element);
   });
 
-  // Contact form helper message
   if (contactForm) {
     contactForm.addEventListener("submit", () => {
       if (formMessage) {
