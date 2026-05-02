@@ -435,6 +435,10 @@ body.light .highlight-card {
   background: linear-gradient(135deg, #1d4ed8, #38bdf8);
 }
 
+.project-top.drone {
+  background: linear-gradient(135deg, #7c2d12, #f97316);
+}
+
 .project-icon {
   font-size: 3rem;
   position: relative;
@@ -450,7 +454,7 @@ body.light .highlight-card {
   gap: 8px;
   flex-wrap: wrap;
   justify-content: flex-end;
-  max-width: 210px;
+  max-width: 230px;
   z-index: 2;
 }
 
@@ -650,8 +654,8 @@ body.light .highlight-card {
   background: linear-gradient(135deg, rgba(21, 114, 182, 0.18), rgba(51, 169, 220, 0.18));
 }
 
-.skill-chip.swift {
-  background: linear-gradient(135deg, rgba(240, 81, 48, 0.18), rgba(255, 146, 0, 0.18));
+.skill-chip.ruby {
+  background: linear-gradient(135deg, rgba(204, 52, 45, 0.18), rgba(155, 17, 30, 0.18));
 }
 
 .skill-chip.vhdl {
@@ -676,6 +680,10 @@ body.light .highlight-card {
 
 .skill-chip.vue {
   background: linear-gradient(135deg, rgba(79, 192, 141, 0.18), rgba(52, 73, 94, 0.18));
+}
+
+.skill-chip.angular {
+  background: linear-gradient(135deg, rgba(221, 0, 49, 0.18), rgba(197, 0, 39, 0.18));
 }
 
 .skill-chip.openssl {
@@ -714,12 +722,24 @@ body.light .highlight-card {
   background: linear-gradient(135deg, rgba(0, 82, 204, 0.18), rgba(38, 132, 255, 0.18));
 }
 
+.skill-chip.figma {
+  background: linear-gradient(135deg, rgba(162, 89, 255, 0.18), rgba(10, 207, 131, 0.18));
+}
+
 .skill-chip.powerbi {
   background: linear-gradient(135deg, rgba(242, 200, 17, 0.18), rgba(233, 118, 39, 0.18));
 }
 
 .skill-chip.raspberry {
   background: linear-gradient(135deg, rgba(196, 18, 48, 0.18), rgba(109, 179, 63, 0.18));
+}
+
+.skill-chip.devops {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.18), rgba(14, 165, 233, 0.18));
+}
+
+.skill-chip.ai {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.18), rgba(236, 72, 153, 0.18));
 }
 
 /* Contact */
