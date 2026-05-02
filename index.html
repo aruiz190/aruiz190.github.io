@@ -3,217 +3,619 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Andrew Ruiz - Portfolio</title>
-  <meta name="description" content="Secure Embedded Systems | iOS Dev | Full Stack">
-  <link rel="icon" href="favicon.png" type="image/png" />
+
+  <title>Andrew Ruiz | Portfolio</title>
+
+  <meta
+    name="description"
+    content="Andrew Ruiz — Computer Engineer focused on secure systems, embedded development, real-time software, and full-stack applications."
+  />
+
+  <link rel="icon" href="images/andrew-profile.jpg" type="image/jpeg" />
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Devicon tech logos -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css"
+  />
+
+  <!-- Font Awesome icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="script.js" defer></script>
 </head>
-<body>
-  <div class="scroll-progress"></div>
-  <div class="custom-cursor"></div>
-  <div class="particles-container"></div>
-  <div class="toast-container"></div>
 
-  <header class="about-hero" id="about" data-aos="fade-down">
-    <nav class="main-nav">
-      <ul>
-        <li><a href="#about" class="active">About</a></li>
-        <li><a href="#projects">Featured Projects</a></li>
-        <li><a href="#skills">Technical Skills</a></li>
-        <li><a href="#resume">Resume</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <div class="mobile-menu-toggle">
+<body>
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Header -->
+  <header class="site-header" id="top">
+    <nav class="navbar">
+      <a href="#top" class="logo" aria-label="Go to top">AR</a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
         <span></span>
         <span></span>
         <span></span>
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#resume">Resume</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+
+        <button
+          class="theme-toggle"
+          id="themeToggle"
+          aria-label="Toggle light and dark mode"
+          aria-pressed="false"
+        >
+          <i class="fas fa-sun toggle-icon sun"></i>
+          <i class="fas fa-moon toggle-icon moon"></i>
+          <span class="toggle-thumb"></span>
+        </button>
       </div>
     </nav>
-    <div class="about-content">
-      <div class="about-photo">
-        <img src="images/andrew-profile.jpg" alt="Andrew Ruiz" class="profile-img">
-      </div>
-      <div class="about-text">
-        <h1 data-typing="Andrew Ruiz">Andrew Ruiz</h1>
-        <h2>Engineer in Secure Systems, Real-Time Software, and Embedded Development</h2>
-        <p>
-          Passionate about building secure, high-performance systems and intuitive user experiences.
-          <span class="about-highlight">B.S. in Computer Engineering, Cal Poly Pomona</span>
-        </p>
-        <div class="about-links">
-          <a href="https://github.com/aruiz190" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-          <a href="https://linkedin.com/in/andrew-ruiz-30bb8a25b/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-          <a href="Andrew.Ruiz_Resume.pdf" target="_blank" class="resume-btn"><i class="fas fa-file-pdf"></i> Download Resume</a>
-        </div>
-      </div>
-    </div>
-    <div class="scroll-indicator"></div>
-    <svg class="header-bg-wave" viewBox="0 0 1440 320"><path fill="#6ec6ff" fill-opacity="0.25" d="M0,224L80,197.3C160,171,320,117,480,117.3C640,117,800,171,960,186.7C1120,203,1280,181,1360,170.7L1440,160L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path></svg>
   </header>
 
   <main>
-    <section id="projects" class="section" data-aos="fade-up">
-      <h2>Featured Projects</h2>
-      <div class="projects-showcase">
-        <div class="project-card">
-          <div class="project-visual">
-            <div class="project-tech-stack">
-              <span class="tech-badge">C</span>
-              <span class="tech-badge">OpenSSL</span>
-              <span class="tech-badge">Pi</span>
-            </div>
-            <div class="project-icon">
-              <i class="fas fa-shield-alt"></i>
-            </div>
-            <div class="project-pattern security-pattern"></div>
+    <!-- Hero / About -->
+    <section class="hero" id="about">
+      <div class="hero-content">
+        <div class="hero-image-wrap">
+          <img
+            src="images/andrew-profile.jpg"
+            alt="Andrew Ruiz"
+            class="profile-image"
+          />
+        </div>
+
+        <div class="hero-text">
+          <p class="eyebrow">Computer Engineering Portfolio</p>
+
+          <h1>Andrew Ruiz</h1>
+
+          <h2>Building secure, high-performance systems that scale.</h2>
+
+          <p class="hero-description">
+            Computer Engineer focused on secure embedded systems, real-time software,
+            iOS development, and full-stack applications. I enjoy building systems
+            that are efficient, practical, and secure.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">View Projects</a>
+
+            <a
+              href="Andrew.Ruiz_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-secondary"
+            >
+              Open Resume
+            </a>
           </div>
-          <div class="project-info">
+
+          <div class="social-links">
+            <a href="https://github.com/aruiz190" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-github"></i>
+              GitHub
+            </a>
+
+            <a
+              href="https://linkedin.com/in/andrew-ruiz-30bb8a25b/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fab fa-linkedin"></i>
+              LinkedIn
+            </a>
+
+            <a href="mailto:andrew.ruiz215@gmail.com">
+              <i class="fas fa-envelope"></i>
+              Email
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Highlights -->
+    <section class="highlights-section">
+      <div class="highlights-grid">
+        <div class="highlight-card">
+          <span>Focus</span>
+          <strong>Secure Systems</strong>
+        </div>
+
+        <div class="highlight-card">
+          <span>Core Areas</span>
+          <strong>Embedded + Full Stack</strong>
+        </div>
+
+        <div class="highlight-card">
+          <span>Degree</span>
+          <strong>B.S. Computer Engineering</strong>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="section" id="projects">
+      <div class="section-heading">
+        <p class="eyebrow">Selected Work</p>
+        <h2>Featured Projects</h2>
+        <p>
+          These projects highlight my work in secure communication, iOS development,
+          cloud systems, and real-time software.
+        </p>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <article class="project-card">
+          <div class="project-top security">
+            <div class="project-icon">
+              <i class="fas fa-shield-halved"></i>
+            </div>
+
+            <div class="tech-list">
+              <span>C</span>
+              <span>OpenSSL</span>
+              <span>POSIX</span>
+            </div>
+          </div>
+
+          <div class="project-body">
             <h3>Encrypted Multiplexed Video & Messaging</h3>
-            <p>Real-time full-duplex system using AES-CTR encryption in C. Features POSIX sockets, OpenSSL cryptography, and multithreading for seamless Raspberry Pi + macOS communication.</p>
-            <div class="project-links">
-              <a href="https://github.com/aruiz190/encrypted-multiplex-system" target="_blank" class="project-btn primary">
-                <i class="fas fa-code"></i> View Code
-              </a>
-            </div>
+
+            <p>
+              Real-time full-duplex communication system using AES-CTR encryption in C.
+              Built with POSIX sockets, OpenSSL cryptography, and multithreading for
+              communication between Raspberry Pi and macOS.
+            </p>
+
+            <a
+              href="https://github.com/aruiz190/encrypted-multiplex-system"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Code →
+            </a>
           </div>
-        </div>
-        
-        <div class="project-card">
-          <div class="project-visual">
-            <div class="project-tech-stack">
-              <span class="tech-badge">Swift</span>
-              <span class="tech-badge">Firebase</span>
-              <span class="tech-badge">iOS</span>
-            </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-card">
+          <div class="project-top mobile">
             <div class="project-icon">
-              <i class="fas fa-mobile-alt"></i>
+              <i class="fas fa-mobile-screen-button"></i>
             </div>
-            <div class="project-pattern mobile-pattern"></div>
+
+            <div class="tech-list">
+              <span>SwiftUI</span>
+              <span>Firebase</span>
+              <span>iOS</span>
+            </div>
           </div>
-          <div class="project-info">
+
+          <div class="project-body">
             <h3>Bucket List iOS App</h3>
-            <p>Full-featured collaborative iOS application built with SwiftUI and Firebase backend. Implements OAuth 2.0 authentication, real-time database synchronization, and cloud storage for seamless multi-user bucket list management.</p>
-            <div class="project-links">
-              <a href="https://github.com/aruiz190/bucketlist-app" target="_blank" class="project-btn primary">
-                <i class="fas fa-code"></i> View Code
-              </a>
+
+            <p>
+              Collaborative iOS application built with SwiftUI and Firebase.
+              Features authentication, real-time syncing, and cloud-backed storage
+              for managing shared bucket lists.
+            </p>
+
+            <a
+              href="https://github.com/aruiz190/bucketlist-app"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Code →
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="project-card">
+          <div class="project-top cloud">
+            <div class="project-icon">
+              <i class="fas fa-cloud-arrow-up"></i>
+            </div>
+
+            <div class="tech-list">
+              <span>AES-256</span>
+              <span>Firebase</span>
+              <span>Cloud</span>
+            </div>
+          </div>
+
+          <div class="project-body">
+            <h3>Cloud-Native File Vault</h3>
+
+            <p>
+              Secure file storage platform using client-side AES-256 encryption.
+              Integrates Firebase Authentication, Cloud Storage, and Firestore for
+              protected cloud-based file management.
+            </p>
+
+            <a
+              href="https://github.com/aruiz190/cloud-native-file-vault"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Code →
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Resume -->
+    <section class="section" id="resume">
+      <div class="section-heading">
+        <p class="eyebrow">Professional Info</p>
+        <h2>Resume</h2>
+        <p>
+          You can preview my resume directly below, open it in a new tab, or download it.
+        </p>
+      </div>
+
+      <div class="resume-actions">
+        <a
+          href="Andrew.Ruiz_Resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary"
+        >
+          Open Resume
+        </a>
+
+        <a
+          href="Andrew.Ruiz_Resume.pdf"
+          download
+          class="btn btn-secondary"
+        >
+          Download Resume
+        </a>
+      </div>
+
+      <div class="resume-viewer">
+        <iframe
+          src="Andrew.Ruiz_Resume.pdf"
+          title="Andrew Ruiz Resume"
+        ></iframe>
+      </div>
+
+      <p class="resume-note">
+        If the preview does not load, use the buttons above to open or download the PDF.
+      </p>
+    </section>
+
+    <!-- Experience -->
+    <section class="section" id="experience">
+      <div class="section-heading">
+        <p class="eyebrow">Background</p>
+        <h2>Experience</h2>
+        <p>
+          A mix of technical work, engineering projects, and leadership experience.
+        </p>
+      </div>
+
+      <div class="timeline">
+        <article class="timeline-card">
+          <div class="timeline-dot"></div>
+
+          <div>
+            <h3>Computer Engineering Graduate</h3>
+            <p class="timeline-meta">Cal Poly Pomona</p>
+            <p>
+              Built a strong foundation in embedded systems, digital design,
+              software engineering, computer architecture, and secure system development.
+            </p>
+          </div>
+        </article>
+
+        <article class="timeline-card">
+          <div class="timeline-dot"></div>
+
+          <div>
+            <h3>Software & Security Projects</h3>
+            <p class="timeline-meta">Personal / Academic Work</p>
+            <p>
+              Designed and built secure communication systems, cloud-backed apps,
+              and iOS projects using C, OpenSSL, SwiftUI, Firebase, and web technologies.
+            </p>
+          </div>
+        </article>
+
+        <article class="timeline-card">
+          <div class="timeline-dot"></div>
+
+          <div>
+            <h3>Youth Leader</h3>
+            <p class="timeline-meta">Think Together</p>
+            <p>
+              Supported students through mentorship, classroom management,
+              communication, and leadership in an educational environment.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section" id="skills">
+      <div class="section-heading">
+        <p class="eyebrow">Toolbox</p>
+        <h2>Technical Skills</h2>
+        <p>
+          Technologies I use across programming, mobile development, cloud systems,
+          and software engineering.
+        </p>
+      </div>
+
+      <div class="skills-wrapper">
+        <!-- Languages -->
+        <div class="skill-group">
+          <h3>Languages</h3>
+
+          <div class="skills-list">
+            <div class="skill-chip python">
+              <i class="devicon-python-plain colored"></i>
+              <span>Python</span>
+            </div>
+
+            <div class="skill-chip rust">
+              <i class="devicon-rust-plain colored"></i>
+              <span>Rust</span>
+            </div>
+
+            <div class="skill-chip java">
+              <i class="devicon-java-plain colored"></i>
+              <span>Java</span>
+            </div>
+
+            <div class="skill-chip go">
+              <i class="devicon-go-plain colored"></i>
+              <span>Go</span>
+            </div>
+
+            <div class="skill-chip c">
+              <i class="devicon-c-plain colored"></i>
+              <span>C</span>
+            </div>
+
+            <div class="skill-chip cpp">
+              <i class="devicon-cplusplus-plain colored"></i>
+              <span>C++</span>
+            </div>
+
+            <div class="skill-chip sql">
+              <i class="devicon-mysql-plain colored"></i>
+              <span>SQL</span>
+            </div>
+
+            <div class="skill-chip js">
+              <i class="devicon-javascript-plain colored"></i>
+              <span>JavaScript</span>
+            </div>
+
+            <div class="skill-chip html">
+              <i class="devicon-html5-plain colored"></i>
+              <span>HTML</span>
+            </div>
+
+            <div class="skill-chip css">
+              <i class="devicon-css3-plain colored"></i>
+              <span>CSS</span>
+            </div>
+
+            <div class="skill-chip swift">
+              <i class="devicon-swift-plain colored"></i>
+              <span>Swift</span>
+            </div>
+
+            <div class="skill-chip vhdl">
+              <i class="fas fa-microchip"></i>
+              <span>VHDL</span>
             </div>
           </div>
         </div>
-        
-        <div class="project-card">
-          <div class="project-visual">
-            <div class="project-tech-stack">
-              <span class="tech-badge">AES-256</span>
-              <span class="tech-badge">Firebase</span>
-              <span class="tech-badge">Cloud</span>
+
+        <!-- Frameworks -->
+        <div class="skill-group">
+          <h3>Frameworks & Libraries</h3>
+
+          <div class="skills-list">
+            <div class="skill-chip react">
+              <i class="devicon-react-original colored"></i>
+              <span>React</span>
             </div>
-            <div class="project-icon">
-              <i class="fas fa-cloud-upload-alt"></i>
+
+            <div class="skill-chip nextjs">
+              <i class="devicon-nextjs-original colored"></i>
+              <span>Next.js</span>
             </div>
-            <div class="project-pattern cloud-pattern"></div>
+
+            <div class="skill-chip nodejs">
+              <i class="devicon-nodejs-plain colored"></i>
+              <span>Node.js</span>
+            </div>
+
+            <div class="skill-chip spring">
+              <i class="devicon-spring-plain colored"></i>
+              <span>Spring Boot</span>
+            </div>
+
+            <div class="skill-chip vue">
+              <i class="devicon-vuejs-plain colored"></i>
+              <span>Vue.js</span>
+            </div>
+
+            <div class="skill-chip openssl">
+              <i class="devicon-openssl-plain colored"></i>
+              <span>OpenSSL</span>
+            </div>
+
+            <div class="skill-chip firebase">
+              <i class="devicon-firebase-plain colored"></i>
+              <span>Firebase</span>
+            </div>
+
+            <div class="skill-chip swiftui">
+              <i class="fab fa-apple"></i>
+              <span>SwiftUI</span>
+            </div>
           </div>
-          <div class="project-info">
-            <h3>Cloud-Native File Vault</h3>
-            <p>Enterprise-grade file security with AES-256 client-side encryption. Integrates Firebase Auth, Cloud Storage, and Firestore with real-time access logging and analytics.</p>
-            <div class="project-links">
-              <a href="https://github.com/aruiz190/cloud-native-file-vault" target="_blank" class="project-btn primary">
-                <i class="fas fa-code"></i> View Code
-              </a>
+        </div>
+
+        <!-- Tools -->
+        <div class="skill-group">
+          <h3>Tools & Platforms</h3>
+
+          <div class="skills-list">
+            <div class="skill-chip aws">
+              <i class="devicon-amazonwebservices-original colored"></i>
+              <span>AWS</span>
+            </div>
+
+            <div class="skill-chip azure">
+              <i class="devicon-azure-plain colored"></i>
+              <span>Azure</span>
+            </div>
+
+            <div class="skill-chip docker">
+              <i class="devicon-docker-plain colored"></i>
+              <span>Docker</span>
+            </div>
+
+            <div class="skill-chip git">
+              <i class="devicon-git-plain colored"></i>
+              <span>Git</span>
+            </div>
+
+            <div class="skill-chip postman">
+              <i class="devicon-postman-plain colored"></i>
+              <span>Postman</span>
+            </div>
+
+            <div class="skill-chip jira">
+              <i class="devicon-jira-plain colored"></i>
+              <span>Jira</span>
+            </div>
+
+            <div class="skill-chip powerbi">
+              <i class="fas fa-chart-column"></i>
+              <span>Power BI</span>
+            </div>
+
+            <div class="skill-chip raspberry">
+              <i class="devicon-raspberrypi-line colored"></i>
+              <span>Raspberry Pi</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-<section id="skills" class="section" data-aos="fade-up">
-      <h2>Technical Skills</h2>
-      <div class="skills-category">
-        <h3>Languages</h3>
-        <div class="skills-list">
-          <div class="skill-badge python"><i class="devicon-python-plain colored"></i>Python</div>
-          <div class="skill-badge rust"><i class="devicon-rust-plain colored"></i>Rust</div>
-          <div class="skill-badge java"><i class="devicon-java-plain colored"></i>Java</div>
-          <div class="skill-badge go"><i class="devicon-go-plain colored"></i>Go</div>
-          <div class="skill-badge c"><i class="devicon-c-plain colored"></i>C</div>
-          <div class="skill-badge cpp"><i class="devicon-cplusplus-plain colored"></i>C++</div>
-          <div class="skill-badge sql"><i class="devicon-mysql-plain colored"></i>SQL</div>
-          <div class="skill-badge js"><i class="devicon-javascript-plain colored"></i>JavaScript</div>
-          <div class="skill-badge html"><i class="devicon-html5-plain colored"></i>HTML</div>
-          <div class="skill-badge css"><i class="devicon-css3-plain colored"></i>CSS</div>
-          <div class="skill-badge vhdl"><i class="devicon-vim-plain colored"></i>VHDL</div>
-        </div>
+    <!-- Contact -->
+    <section class="section" id="contact">
+      <div class="section-heading">
+        <p class="eyebrow">Get In Touch</p>
+        <h2>Contact</h2>
+        <p>
+          Interested in connecting, collaborating, or learning more about my work?
+          Send me a message.
+        </p>
       </div>
-      <div class="skills-category">
-        <h3>Frameworks & Libraries</h3>
-        <div class="skills-list">
-          <div class="skill-badge react"><i class="devicon-react-original colored"></i>React</div>
-          <div class="skill-badge nextjs"><i class="devicon-nextjs-original colored"></i>Next.js</div>
-          <div class="skill-badge nodejs"><i class="devicon-nodejs-plain colored"></i>Node.js</div>
-          <div class="skill-badge spring"><i class="devicon-spring-plain colored"></i>Spring Boot</div>
-          <div class="skill-badge vue"><i class="devicon-vuejs-plain colored"></i>Vue.js</div>
-          <div class="skill-badge openssl"><i class="devicon-openssl-plain colored"></i>OpenSSL</div>
-          <div class="skill-badge firebase"><i class="devicon-firebase-plain colored"></i>Firebase</div>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>Contact Info</h3>
+
+          <p>
+            <strong>Email:</strong>
+            <a href="mailto:andrew.ruiz215@gmail.com">andrew.ruiz215@gmail.com</a>
+          </p>
+
+          <p>
+            <strong>GitHub:</strong>
+            <a href="https://github.com/aruiz190" target="_blank" rel="noopener noreferrer">
+              github.com/aruiz190
+            </a>
+          </p>
+
+          <p>
+            <strong>LinkedIn:</strong>
+            <a
+              href="https://linkedin.com/in/andrew-ruiz-30bb8a25b/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              linkedin.com/in/andrew-ruiz-30bb8a25b
+            </a>
+          </p>
         </div>
-      </div>
-      <div class="skills-category">
-        <h3>Tools & Platforms</h3>
-        <div class="skills-list">
-          <div class="skill-badge aws"><i class="devicon-amazonwebservices-original colored"></i>AWS</div>
-          <div class="skill-badge azure"><i class="devicon-azure-plain colored"></i>Azure</div>
-          <div class="skill-badge docker"><i class="devicon-docker-plain colored"></i>Docker</div>
-          <div class="skill-badge git"><i class="devicon-git-plain colored"></i>Git</div>
-          <div class="skill-badge postman"><i class="devicon-postman-plain colored"></i>Postman</div>
-          <div class="skill-badge jira"><i class="devicon-jira-plain colored"></i>Jira</div>
-          <div class="skill-badge powerbi"><i class="devicon-powerbi-plain colored"></i>PowerBI</div>
-        </div>
+
+        <form
+          class="contact-form"
+          action="https://formspree.io/f/meokqraz"
+          method="POST"
+        >
+          <input type="text" name="name" placeholder="Your name" required />
+          <input type="email" name="email" placeholder="Your email" required />
+          <textarea name="message" rows="5" placeholder="Your message..." required></textarea>
+
+          <button type="submit">Send Message</button>
+
+          <p class="form-message" id="formMessage"></p>
+        </form>
       </div>
     </section>
   </main>
 
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
 
-    <section id="resume" class="section" data-aos="fade-up">
-      <h2>Resume</h2>
-      <p>
-        <a href="Andrew.Ruiz_Resume.pdf" target="_blank">
-          <i class="fas fa-file-pdf"></i> Download Resume (PDF)
-        </a>
-      </p>
-    </section>
+  <footer class="footer">
+    <p>© 2026 Andrew Ruiz. All rights reserved.</p>
 
-    <section id="contact" class="section" data-aos="fade-up">
-      <h2>Contact</h2>
-      <form action="https://formspree.io/f/meokqraz" method="POST" id="contact-form">
-        <input type="text" name="name" placeholder="Your name" required>
-        <input type="email" name="email" placeholder="Your email" required>
-        <textarea name="message" placeholder="Your message..." rows="5" required></textarea>
-        <button type="submit">
-          <i class="fas fa-paper-plane"></i> Send Message
-        </button>
-        <p class="form-status" id="form-status"></p>
-      </form>
-      <p>or email me directly at 
-        <a href="mailto:andrew.ruiz215@gmail.com">
-          <i class="fas fa-envelope"></i> andrew.ruiz215@gmail.com
-        </a>
-      </p>
-    </section>
+    <div class="footer-links">
+      <a href="https://github.com/aruiz190" target="_blank" rel="noopener noreferrer">
+        GitHub
+      </a>
 
-  
-  <button id="scrollTopBtn" title="Back to top"><i class="fas fa-arrow-up"></i></button>
+      <a
+        href="https://linkedin.com/in/andrew-ruiz-30bb8a25b/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        LinkedIn
+      </a>
 
-  <footer>
-    © 2025 Andrew Ruiz — All rights reserved<br>
-    <a href="https://github.com/aruiz190" target="_blank"><i class="fab fa-github"></i> GitHub</a> |
-    <a href="https://linkedin.com/in/andrew-ruiz-30bb8a25b/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      <a href="Andrew.Ruiz_Resume.pdf" target="_blank" rel="noopener noreferrer">
+        Resume
+      </a>
+    </div>
   </footer>
-
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>AOS.init();</script>
 </body>
 </html>
